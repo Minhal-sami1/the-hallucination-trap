@@ -371,7 +371,7 @@ try {
     Invoke-Az -CommandArgs @(
         'acr', 'build', '--registry', $RegistryName, '--resource-group', $ResourceGroup,
         '--image', "${ImageRepository}:$ImageTag", '--file', 'Dockerfile', $buildContextRoot,
-        '--platform', 'linux/amd64', '--timeout', '3600', '--only-show-errors')
+        '--platform', 'linux/amd64', '--timeout', '3600', '--no-logs', '--only-show-errors')
 }
 finally {
     if (Test-Path -LiteralPath $buildContextRoot) {
