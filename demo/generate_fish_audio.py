@@ -10,6 +10,9 @@ from pathlib import Path
 from typing import Any
 
 FISH_API_BASE = "https://api.fish.audio"
+FISH_VOICE_ID = "ddc683e8d4434089a00877a179668b51"
+FISH_TTS_MODEL = "s2.1-pro"
+FISH_SAMPLE_RATE = 44_100
 
 
 def _request(
@@ -36,18 +39,17 @@ def _request(
         raise RuntimeError(f"Fish Audio returned HTTP {error.code}: {detail[:500]}") from error
 
 
-def synthesize(*, text: str, key: str, voice_id: str, output: Path) -> None:
+def synthesize(*, text: str, key: str, output: Path) -> None:
     payload = {
         "text": text,
-        "reference_id": voice_id,
-        "temperature": 0.72,
-        "top_p": 0.75,
+        "reference_id": FISH_VOICE_ID,
+        "temperature": 0.7,
+        "top_p": 0.7,
         "prosody": {"speed": 1.0, "volume": 0, "normalize_loudness": True},
-        "chunk_length": 250,
+        "chunk_length": 300,
         "normalize": True,
-        "format": "mp3",
-        "sample_rate": 44100,
-        "mp3_bitrate": 192,
+        "format": "wav",
+        "sample_rate": FISH_SAMPLE_RATE,
         "latency": "normal",
         "max_new_tokens": 4096,
         "repetition_penalty": 1.15,
@@ -59,7 +61,7 @@ def synthesize(*, text: str, key: str, voice_id: str, output: Path) -> None:
         key=key,
         data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
         content_type="application/json",
-        model="s2-pro",
+        model=FISH_TTS_MODEL,
     )
     output.write_bytes(audio)
 
@@ -81,7 +83,7 @@ def _multipart(fields: dict[str, str], file_path: Path) -> tuple[bytes, str]:
             f"--{boundary}\r\n".encode(),
             (
                 f'Content-Disposition: form-data; name="audio"; filename="{file_path.name}"\r\n'
-                "Content-Type: audio/mpeg\r\n\r\n"
+                "Content-Type: audio/wav\r\n\r\n"
             ).encode(),
             file_path.read_bytes(),
             b"\r\n",
@@ -134,7 +136,6 @@ def main() -> None:
     )
     parser.add_argument("--script", type=Path, required=True)
     parser.add_argument("--language", choices=("en", "ar"), required=True)
-    parser.add_argument("--voice-id", required=True)
     parser.add_argument("--out-dir", type=Path, required=True)
     args = parser.parse_args()
 
@@ -147,8 +148,8 @@ def main() -> None:
         raise SystemExit("The narration script is empty.")
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
-    audio_path = args.out_dir / "narration.mp3"
-    synthesize(text=script, key=key, voice_id=args.voice_id, output=audio_path)
+    audio_path = args.out_dir / "narration.wav"
+    synthesize(text=script, key=key, output=audio_path)
     asr = transcribe(audio=audio_path, key=key, language=args.language)
 
     (args.out_dir / "fish-asr.json").write_text(
@@ -164,11 +165,26 @@ def main() -> None:
         json.dumps(
             {
                 "provider": "Fish Audio",
-                "tts_model": "s2-pro",
-                "voice_id": args.voice_id,
+                "tts_model": FISH_TTS_MODEL,
+                "voice_id": FISH_VOICE_ID,
+                "voice_name": "صوت رجل سعودي مميز ⭐",
+                "voice_creator": "Alnsra18ldahbe18",
                 "language": args.language,
                 "script": args.script.as_posix(),
                 "duration_seconds": asr.get("duration"),
+                "source_audio": {
+                    "format": "wav",
+                    "sample_rate_hz": FISH_SAMPLE_RATE,
+                },
+                "generation": {
+                    "speed": 1.0,
+                    "temperature": 0.7,
+                    "top_p": 0.7,
+                    "chunk_length": 300,
+                    "latency": "normal",
+                    "volume_adjustment": 0,
+                    "loudness_normalization": True,
+                },
                 "api_key_persisted": False,
             },
             ensure_ascii=False,

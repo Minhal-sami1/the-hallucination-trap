@@ -1,6 +1,6 @@
 # Demo recording workflow
 
-This folder defines two separate, local-only demo videos: English and Arabic. Both use the real application in visible Cached mode, deterministic Supercut capture, Fish Audio S2 Pro narration, Fish Audio ASR transcription, and FFmpeg assembly. Nothing in this workflow deploys the application.
+This folder defines two separate, local-only demo videos: English and Arabic. Both use the real application in visible Cached mode, deterministic Supercut capture, Fish Audio S2.1 Pro narration, Fish Audio ASR transcription, and FFmpeg assembly. Nothing in this workflow deploys the application.
 
 ## Truth boundaries
 
@@ -12,9 +12,17 @@ This folder defines two separate, local-only demo videos: English and Arabic. Bo
 ## Pinned tools
 
 - Supercut: `Co-Messi/supercut` commit `bd47f71e939c0e377fd2f684941bce17f3949e06`
-- Fish Audio TTS: `s2-pro`
-- English Fish voice: `2f1c05cccd35411e96f1197c1e75540c`
-- Arabic Fish voice: `41e9a2ebe92c45e5a5485edef78a9d6b`
+- Fish Audio TTS: `s2.1-pro`
+- English and Arabic Fish voice: `صوت رجل سعودي مميز ⭐`
+- Voice creator: `Alnsra18ldahbe18`
+- Voice reference: `ddc683e8d4434089a00877a179668b51`
+
+The same voice speaks both tracks. Arabic uses clear, professional,
+conversational Gulf Arabic. English uses natural conversational English. The
+generation profile is fixed in the script: speed `1.0x`, temperature `0.7`,
+top-p `0.7`, chunk length `300`, normal latency, volume adjustment `0`, and
+loudness normalization enabled. Fish returns WAV at 44.1 kHz. The CLI does not
+accept a voice override, so both tracks always use the pinned profile.
 
 Supercut records at most 60 seconds per recipe. The scripts are written for a natural 1.0x voice. Do not accelerate narration to force a fit.
 
@@ -45,8 +53,8 @@ Set `FISH_API_KEY` only in the current process. Do not put the key in a file:
 ```powershell
 $env:FISH_API_KEY = "<Fish Audio API key>"
 
-python demo\generate_fish_audio.py --script demo\scripts\english.txt --language en --voice-id 2f1c05cccd35411e96f1197c1e75540c --out-dir results\demo\english
-python demo\generate_fish_audio.py --script demo\scripts\arabic.txt --language ar --voice-id 41e9a2ebe92c45e5a5485edef78a9d6b --out-dir results\demo\arabic
+python demo\generate_fish_audio.py --script demo\scripts\english.txt --language en --out-dir results\demo\english
+python demo\generate_fish_audio.py --script demo\scripts\arabic.txt --language ar --out-dir results\demo\arabic
 
 Remove-Item Env:FISH_API_KEY
 ```
@@ -89,27 +97,28 @@ To rebuild one language, use `--language english` or `--language arabic`.
 ## Add narration and captions
 
 Supercut produces `silent.mp4`. The following PowerShell commands burn the
-Fish-derived captions, normalize narration to -16 LUFS, and add AAC audio. They
-use the FFmpeg binary installed with the local DemoMaker tools. The video stays
-at natural 1.0x speed.
+Fish-derived captions, normalize narration to -16 LUFS with a -1.5 dBTP true
+peak and 7 LU loudness range, and add AAC audio at 48 kHz stereo and 192 kbps.
+`master_video.py` finds the FFmpeg and FFprobe binaries installed with the
+local DemoMaker tools. It uses measured two-pass EBU R128 normalization. The
+video and narration stay at natural 1.0x speed. If narration is longer than the
+screen recording, the tool holds the final video frame. It never accelerates
+the voice.
 
 ```powershell
-$ffmpeg = Join-Path $env:LOCALAPPDATA "BrainLM\DemoMaker\vendor\media\ffmpeg.exe"
-
-Push-Location results\demo\english
-& $ffmpeg -y -filter_threads 2 -i silent.mp4 -i narration.mp3 -filter_complex "[0:v]subtitles=captions.srt:force_style='FontName=Arial,FontSize=16,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1,Outline=3,Shadow=1,MarginV=24,Alignment=2'[v];[1:a]loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=6[a]" -map "[v]" -map "[a]" -c:v libx264 -preset veryfast -crf 18 -threads 6 -c:a aac -b:a 192k -ar 48000 -ac 2 -shortest -movflags +faststart final.mp4
-Pop-Location
-
-Push-Location results\demo\arabic
-& $ffmpeg -y -filter_threads 2 -i silent.mp4 -i narration.mp3 -filter_complex "[0:v]subtitles=captions.srt:force_style='FontName=Segoe UI,FontSize=16,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1,Outline=3,Shadow=1,MarginV=24,Alignment=2'[v];[1:a]loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=6[a]" -map "[v]" -map "[a]" -c:v libx264 -preset veryfast -crf 18 -threads 6 -c:a aac -b:a 192k -ar 48000 -ac 2 -shortest -movflags +faststart final.mp4
-Pop-Location
+python demo\master_video.py --video results\demo\english\silent.mp4 --audio results\demo\english\narration.wav --captions results\demo\english\captions.srt --output results\demo\english\final.mp4 --font-name "Arial"
+python demo\master_video.py --video results\demo\arabic\silent.mp4 --audio results\demo\arabic\narration.wav --captions results\demo\arabic\captions.srt --output results\demo\arabic\final.mp4 --font-name "Segoe UI"
 ```
 
 FFmpeg uses libass for the SRT filter. English uses Arial. Arabic uses Segoe UI
 because it renders the full Arabic glyph set without fallback boxes; libass
 performs Arabic shaping and bidirectional layout. The output files are
 `results/demo/english/final.mp4` and
-`results/demo/arabic/final.mp4`.
+`results/demo/arabic/final.mp4`. Each command also writes a key-free
+`final.mastering.json` file next to the video. This report keeps the configured
+targets separate from the measured loudness of the final AAC track. A short
+speech track can have a measured loudness range below the 7 LU target; the
+report shows the real value.
 
 ## Verify final files
 

@@ -11,9 +11,12 @@ node_modules/
 web/dist/
 results/*.tmp
 results/demo/**/take/
+results/demo/**/take-*/
+results/demo/**/new-voice*/
 results/demo/**/*.mp4
 results/demo/**/*.mp3
 results/demo/**/*.wav
+results/demo/**/final*.mastering.json
 .cache/
 .DS_Store
 Thumbs.db

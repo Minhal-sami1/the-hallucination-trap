@@ -1,39 +1,71 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "generated_at": "2026-08-12",
   "local_only": true,
   "deployed": false,
   "supercut_commit": "bd47f71e939c0e377fd2f684941bce17f3949e06",
+  "narration": {
+    "provider": "Fish Audio",
+    "voice_name": "صوت رجل سعودي مميز ⭐",
+    "voice_creator": "Alnsra18ldahbe18",
+    "voice_reference_id": "ddc683e8d4434089a00877a179668b51",
+    "model": "s2.1-pro",
+    "source_format": "WAV PCM 16-bit mono 44100 Hz",
+    "speed": 1.0,
+    "temperature": 0.7,
+    "top_p": 0.7,
+    "chunk_length": 300,
+    "latency": "normal",
+    "volume_adjustment": 0,
+    "loudness_normalization": true
+  },
+  "mastering_target": {
+    "integrated_lufs": -16.0,
+    "true_peak_dbtp": -1.5,
+    "loudness_range_lu": 7.0,
+    "output": "AAC-LC 48000 Hz stereo 192 kbps"
+  },
   "videos": [
     {
       "language": "english",
       "path": "results/demo/english/final.mp4",
-      "duration_seconds": 57.85,
-      "bytes": 17093557,
-      "video": "H.264 1920x1080 60 fps",
-      "audio": "AAC 48000 Hz stereo",
-      "sha256": "050FE075D02AFA93F41E3644069D293882289E14FF74ADA38359ADF70A9AA33D",
-      "full_decode": "passed"
+      "duration_seconds": 57.15,
+      "bytes": 21167099,
+      "video": "H.264 High 1920x1080 yuv420p",
+      "audio": "AAC-LC 48000 Hz stereo 192 kbps requested",
+      "sha256": "274069AD96A85295B97CE71E85F1932AAB16FF3BCB4325DC2B90BAEDAFE9624F",
+      "full_decode": "passed",
+      "measured": {
+        "integrated_lufs": -16.11,
+        "true_peak_dbtp": -4.41,
+        "loudness_range_lu": 2.1
+      }
     },
     {
       "language": "arabic",
       "path": "results/demo/arabic/final.mp4",
-      "duration_seconds": 55.184,
-      "bytes": 11769047,
-      "video": "H.264 1920x1080 60 fps",
-      "audio": "AAC 48000 Hz stereo",
-      "sha256": "FF269C5E12BF5A0BB4EAA58A7D8D0BFA6C3230CA2BBDC5D398BD3BED0074BFF8",
-      "full_decode": "passed"
+      "duration_seconds": 55.384,
+      "bytes": 16061664,
+      "video": "H.264 High 1920x1080 yuv420p",
+      "audio": "AAC-LC 48000 Hz stereo 192 kbps requested",
+      "sha256": "60A1470C669B581FA9CD95862709EB6BE3698E6E67441C3253A14DFF5E811040",
+      "full_decode": "passed",
+      "measured": {
+        "integrated_lufs": -16.27,
+        "true_peak_dbtp": -4.41,
+        "loudness_range_lu": 2.6
+      }
     }
   ],
   "application_verification": {
     "local_url": "http://127.0.0.1:8899",
+    "host_port_8000": "free",
     "corpus_articles": 1422,
     "primary_arabic_trap_runs_passed": 10,
     "primary_arabic_trap_runs_total": 10,
     "fabricated_verdict_min_ms": 730,
     "fabricated_verdict_max_ms": 788,
     "grounded_verified_article": 1042,
-    "tests_passed": 115
+    "tests_passed": 133
   }
 }

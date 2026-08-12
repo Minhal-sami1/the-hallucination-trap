@@ -67,15 +67,39 @@ def repair_word(language: str, text: str, next_text: str | None) -> str:
     """Apply only reviewed, exact Fish ASR recognition repairs."""
 
     if language == "english":
+        if text == "clientready":
+            return "client-ready"
+        if text == "sourcefree":
+            return "source-free"
+        if text == "hallucination" and next_text == "trap":
+            return "Hallucination"
+        if text == "trap" and next_text == "is":
+            return "Trap"
+        if text == "Question" and next_text == "The":
+            return "question"
+        if text == "with" and next_text == "weak":
+            return "With"
+        if text == "It" and next_text == "refuses":
+            return "it"
         if text == "fabricatedThe":
             return "fabricated. The"
         if text == "check" and next_text == "questions":
             return "checked"
-        if text == "90" and next_text == "precision":
+        if text == "90" and next_text in {"citation", "precision"}:
             return "90%"
         if text == "8824" and next_text == "recall":
             return "88.24%"
     elif language == "arabic":
+        if text == "محامي":
+            return "المحامي"
+        if text == "ومسار" and next_text == "نموذج":
+            return "ومساران:"
+        if text == "بدلا" and next_text == "التخمين":
+            return "بدل"
+        if text == "التأكيد":
+            return "التدقيق"
+        if text == "انتهى":
+            return "ينتهي"
         if text in {"المحمي", "المحمل"}:
             return "المحمّل"
         if text == "إجاري":
@@ -93,11 +117,59 @@ def normalize_asr_text(language: str, text: str) -> str:
     """Apply the same reviewed repairs to the Fish full-transcript field."""
 
     if language == "english":
+        text = text.replace(
+            "The hallucination trap is", "The Hallucination Trap is"
+        )
+        text = text.replace(
+            "Watch the building collapse. Question: The",
+            "Watch the building-collapse question. The",
+        )
+        text = text.replace(
+            "Green shows the law and source with weak evidence. It refuses",
+            "Green shows the law and source. With weak evidence, it refuses",
+        )
+        text = text.replace(
+            "no false, fabricated verdicts", "no false fabricated verdicts"
+        )
         text = text.replace("fabricated.The", "fabricated. The")
+        text = text.replace("exist.The", "exist. The")
         text = re.sub(r"\b50 check questions\b", "50 checked questions", text)
         text = re.sub(r"\b90 precision\b", "90% precision", text)
         text = re.sub(r"\b8824 recall\b", "88.24% recall", text)
     elif language == "arabic":
+        text = text.replace("التأكيد", "التدقيق")
+        text = text.replace("انتهى", "ينتهي")
+        text = text.replace("وعشرينالمسار", "وعشرين. المسار")
+        text = text.replace("أزمة ثقة مصيدة الهلوسة", "أزمة ثقة. مصيدة الهلوسة")
+        text = text.replace(
+            "قبل محامي سؤال إماراتي ومسار نموذج بلا مصادر ومسار يبحث",
+            "قبل المحامي. سؤال إماراتي، ومساران: نموذج بلا مصادر، ومسار يبحث",
+        )
+        text = text.replace(
+            "التشريع الرسمي نجرب حجب ضوء الجار النموذج",
+            "التشريع الرسمي. نجرب حجب ضوء الجار. النموذج",
+        )
+        text = text.replace(
+            "بثقة التدقيق يضربها بالأحمر مختلقة قانون",
+            "بثقة. التدقيق يضربها بالأحمر: مختلقة. قانون",
+        )
+        text = text.replace(
+            "المادة ألف واثنين وأربعين ويعرض",
+            "المادة ألف واثنين وأربعين، ويعرض",
+        )
+        text = text.replace(
+            "وإذا الدليل ضعيف يرفض بدلا التخمين.",
+            "وإذا الدليل ضعيف، يرفض بدل التخمين.",
+        )
+        text = text.replace(
+            "في خمسين سؤالا دقة تسعين بالمئة",
+            "في خمسين سؤالا: دقة تسعين بالمئة،",
+        )
+        text = text.replace(
+            "فاصلة أربعة وعشرين وصفر أحمر",
+            "فاصلة أربعة وعشرين، وصفر أحمر",
+        )
+        text = text.replace("الخلاصة الكلام", "الخلاصة: الكلام")
         text = text.replace("المحمي", "المحمّل")
         text = text.replace("المحمل", "المحمّل")
         text = text.replace("بناء إجاري", "بناء جار")
@@ -174,7 +246,31 @@ def load_words(path: Path, language: str) -> tuple[list[Word], int]:
     if not isinstance(raw_segments, list) or not raw_segments:
         raise ValueError(f"{path}: segments must be a non-empty list")
 
-    if language == "arabic":
+    if language == "english":
+        merged_segments = []
+        index = 0
+        while index < len(raw_segments):
+            segment = raw_segments[index]
+            next_segment = raw_segments[index + 1] if index + 1 < len(raw_segments) else None
+            if (
+                isinstance(segment, dict)
+                and isinstance(next_segment, dict)
+                and str(segment.get("text", "")).strip() == "building"
+                and str(next_segment.get("text", "")).strip() == "collapse"
+            ):
+                merged_segments.append(
+                    {
+                        **segment,
+                        "end": next_segment.get("end"),
+                        "text": "building-collapse",
+                    }
+                )
+                index += 2
+                continue
+            merged_segments.append(segment)
+            index += 1
+        raw_segments = merged_segments
+    elif language == "arabic":
         merged_segments: list[dict[str, Any]] = []
         index = 0
         while index < len(raw_segments):
@@ -223,6 +319,12 @@ def load_words(path: Path, language: str) -> tuple[list[Word], int]:
         if language == "english" and text == "fabricatedThe":
             repaired_text = "fabricated."
             next_prefix = "The"
+        elif language == "english" and text == "existThe":
+            repaired_text = "exist."
+            next_prefix = "The"
+        elif language == "arabic" and text == "وعشرينالمسار":
+            repaired_text = "وعشرين."
+            next_prefix = "المسار"
         elif language == "arabic" and text == "موجودةوالبطاقة":
             repaired_text = "موجودة."
             next_prefix = "والبطاقة"
@@ -294,6 +396,7 @@ def group_cues(words: list[Word], language: str) -> list[Cue]:
 
     for index, word in enumerate(words):
         next_word = words[index + 1] if index + 1 < len(words) else None
+        following_word = words[index + 2] if index + 2 < len(words) else None
 
         current_plain = word.text.rstrip(".,!?،؛؟:")
         if language == "arabic" and pending and current_plain == "لم":
@@ -305,12 +408,30 @@ def group_cues(words: list[Word], language: str) -> list[Cue]:
             pending
             and word.text.rstrip(".,!?،؛؟").endswith("%")
             and next_word is not None
-            and next_word.text.rstrip(".,!?،؛؟").lower() in {"precision", "recall"}
-            and next_word.end_ms - pending[0].start_ms > max_cue_ms
+            and (
+                next_word.text.rstrip(".,!?،؛؟").lower() in {"precision", "recall"}
+                or (
+                    next_word.text.rstrip(".,!?،؛؟").lower() == "citation"
+                    and following_word is not None
+                    and following_word.text.rstrip(".,!?،؛؟").lower()
+                    == "precision"
+                )
+            )
+            and (
+                (following_word or next_word).end_ms - pending[0].start_ms
+                > max_cue_ms
+            )
         ):
             flush()
 
         if pending and word.end_ms - pending[0].start_ms > max_cue_ms:
+            flush()
+
+        # Subtitle players do not apply a reliable maximum-line setting. Keep
+        # the two-line limit deterministic here, on Fish word boundaries.
+        candidate_text = cue_text([*pending, word])
+        line_width = int(settings["line_width"])
+        if pending and len(wrap_text(candidate_text, line_width).splitlines()) > 2:
             flush()
 
         pending.append(word)
@@ -374,6 +495,8 @@ def group_cues(words: list[Word], language: str) -> list[Cue]:
             raise ValueError("generated cues overlap")
         if cue.end_ms - cue.start_ms > max_cue_ms:
             raise ValueError(f"generated cue exceeds {max_cue_ms} ms: {cue!r}")
+        if len(wrap_text(cue.text, int(settings["line_width"])).splitlines()) > 2:
+            raise ValueError(f"generated cue exceeds two lines: {cue!r}")
         previous_end = cue.end_ms
     return cues
 
@@ -443,12 +566,18 @@ def render_srt(cues: list[Cue], language: str) -> str:
     return "\n\n".join(blocks) + "\n"
 
 
-def build_language(results_root: Path, language: str) -> tuple[Path, int, int, int]:
+def build_language(
+    results_root: Path,
+    language: str,
+    *,
+    source_path: Path | None = None,
+) -> tuple[Path, int, int, int]:
     directory = results_root / language
-    source_path = directory / "fish-asr.json"
+    source_path = source_path or directory / "fish-asr.json"
     output_path = directory / "captions.srt"
     words, audio_duration_ms = load_words(source_path, language)
     cues = group_cues(words, language)
+    directory.mkdir(parents=True, exist_ok=True)
     output_path.write_text(render_srt(cues, language), encoding="utf-8", newline="\n")
     return output_path, len(cues), cues[-1].end_ms, audio_duration_ms
 
@@ -469,6 +598,16 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_RESULTS_ROOT,
         help="Directory that contains english/ and arabic/ Fish ASR results.",
     )
+    parser.add_argument(
+        "--english-asr",
+        type=Path,
+        help="Optional English Fish ASR JSON source outside --results-root.",
+    )
+    parser.add_argument(
+        "--arabic-asr",
+        type=Path,
+        help="Optional Arabic Fish ASR JSON source outside --results-root.",
+    )
     return parser.parse_args()
 
 
@@ -476,8 +615,11 @@ def main() -> int:
     args = parse_args()
     languages = LANGUAGE_SETTINGS if args.language == "all" else (args.language,)
     for language in languages:
+        source_path = getattr(args, f"{language}_asr")
         path, count, final_cue_ms, audio_duration_ms = build_language(
-            args.results_root.resolve(), language
+            args.results_root.resolve(),
+            language,
+            source_path=None if source_path is None else source_path.resolve(),
         )
         print(
             f"{language}: {count} cues; final cue {final_cue_ms / 1000:.3f}s; "

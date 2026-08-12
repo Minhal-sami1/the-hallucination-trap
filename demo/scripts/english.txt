@@ -1,11 +1,11 @@
-A legal answer can sound perfect and still cite a law that does not exist. Watch Article fourteen seventy-one.
+One invented citation can turn client-ready legal work into a credibility problem.
 
-The Hallucination Trap sends one UAE law question through two paths. Left is a visibly cached, ungrounded model run. Right retrieves and ranks official law, then can cite only retrieved articles.
+The Hallucination Trap is an independent demo that catches it before a lawyer does. One UAE question goes to a source-free model and an official-law pipeline.
 
-A building collapses eight years after delivery. Both answers stream—and there it is: red. This law ends at Article fourteen twenty-two. Article fourteen seventy-one is fabricated.
+Watch the building-collapse question. The first answer sounds certain: Article fourteen seventy-one. The audit checks it. Red: fabricated. The twenty twenty-five law ends at Article fourteen twenty-two. That citation cannot exist.
 
-The grounded path cites Article eight twenty-one. Green proves the exact law, year, and article exist; it does not automatically prove every conclusion. The card shows the official excerpt and exact source link.
+The grounded path retrieves Article eight twenty-one. Green shows the law and source. With weak evidence, it refuses instead of guessing.
 
-Across fifty checked questions: ninety percent precision, eighty-eight point two four percent recall, and zero of eighty-four real citations falsely marked fabricated.
+Compare the scoreboards. Across fifty checked questions: ninety percent citation precision, eighty-eight point two four percent recall, and no false fabricated verdicts across eighty-four real citations.
 
-Fluent is not defensible. Every citation should survive the record.
+That is the solution: do not trust fluency alone. Make every citation face the official record.

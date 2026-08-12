@@ -4,7 +4,7 @@
   "music_track": "off",
   "scenes": [
     {
-      "name": "trap",
+      "name": "risk-to-proof",
       "priority": 1,
       "entry": {
         "url": "http://127.0.0.1:8899/",
@@ -12,30 +12,33 @@
       },
       "depends_on": [],
       "actions": [
-        { "kind": "wait", "duration_ms": 4500 },
-        { "kind": "hover", "selector": ".mode-ribbon", "focus_selector": ".workbench", "duration_ms": 2200 },
+        { "kind": "wait", "duration_ms": 5200 },
+        { "kind": "hover", "selector": ".workbench", "focus_selector": ".workbench", "duration_ms": 4960 },
         { "kind": "click", "selector": ".seed-chip:nth-child(2)", "focus_selector": ".question-form", "duration_ms": 1800 },
+        { "kind": "hover", "selector": ".seed-chip.is-selected", "focus_selector": ".question-form", "duration_ms": 2000 },
         { "kind": "click", "selector": ".run-button", "focus_selector": ".workbench", "duration_ms": 1200 },
-        { "kind": "wait", "duration_ms": 8000 },
-        { "kind": "hover", "selector": ".audit-card.verdict-fabricated", "focus_selector": ".audit-card.verdict-fabricated", "duration_ms": 6000 },
-        { "kind": "hover", "selector": ".audit-card.verdict-verified .source-link", "focus_selector": ".audit-card.verdict-verified", "duration_ms": 12000 }
+        { "kind": "wait", "duration_ms": 5720 },
+        { "kind": "hover", "selector": ".audit-card.verdict-fabricated", "focus_selector": ".audit-card.verdict-fabricated", "duration_ms": 9040 },
+        { "kind": "hover", "selector": ".audit-card.verdict-verified .source-link", "focus_selector": ".audit-card.verdict-verified", "duration_ms": 7840 },
+        { "kind": "hover", "selector": ".panel-ungrounded .scoreboard", "focus_selector": ".panel-ungrounded .scoreboard", "duration_ms": 1220 },
+        { "kind": "hover", "selector": ".panel-grounded .scoreboard", "focus_selector": ".panel-grounded .scoreboard", "duration_ms": 1220 }
       ],
-      "hold_ms": 1500
+      "hold_ms": 0
     },
     {
-      "name": "measured-results",
+      "name": "measured-evidence",
       "priority": 2,
       "entry": {
         "url": "http://127.0.0.1:8899/results",
         "prelude": []
       },
-      "depends_on": ["trap"],
+      "depends_on": ["risk-to-proof"],
       "actions": [
-        { "kind": "wait", "duration_ms": 2500 },
-        { "kind": "hover", "selector": ".metrics-grid", "focus_selector": ".metrics-grid", "duration_ms": 10000 },
-        { "kind": "hover", "selector": ".site-footer", "focus_selector": ".site-footer", "duration_ms": 5000 }
+        { "kind": "wait", "duration_ms": 800 },
+        { "kind": "hover", "selector": ".metrics-grid", "focus_selector": ".metrics-grid", "duration_ms": 8680 },
+        { "kind": "hover", "selector": ".site-footer", "focus_selector": ".site-footer", "duration_ms": 5600 }
       ],
-      "hold_ms": 1500
+      "hold_ms": 200
     }
   ]
 }

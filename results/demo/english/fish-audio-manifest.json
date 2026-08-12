@@ -1,9 +1,24 @@
 {
   "provider": "Fish Audio",
-  "tts_model": "s2-pro",
-  "voice_id": "2f1c05cccd35411e96f1197c1e75540c",
+  "tts_model": "s2.1-pro",
+  "voice_id": "ddc683e8d4434089a00877a179668b51",
+  "voice_name": "صوت رجل سعودي مميز ⭐",
+  "voice_creator": "Alnsra18ldahbe18",
   "language": "en",
   "script": "demo/scripts/english.txt",
-  "duration_seconds": 55.118375,
+  "duration_seconds": 55.47175,
+  "source_audio": {
+    "format": "wav",
+    "sample_rate_hz": 44100
+  },
+  "generation": {
+    "speed": 1.0,
+    "temperature": 0.7,
+    "top_p": 0.7,
+    "chunk_length": 300,
+    "latency": "normal",
+    "volume_adjustment": 0,
+    "loudness_normalization": true
+  },
   "api_key_persisted": false
 }
