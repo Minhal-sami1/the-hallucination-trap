@@ -16,7 +16,7 @@ This project is a technical demonstration. It is not legal advice. A `VERIFIED` 
 | Artifact | Status |
 | --- | --- |
 | Live HTTPS demo | **Pending deployment. No public URL is claimed in this README yet.** |
-| Public repository | <https://github.com/Minhal019/the-hallucination-trap> |
+| Public repository | <https://github.com/Minhal-sami1/the-hallucination-trap> |
 | Three-minute Loom | **Pending recording.** Use the exact [recording plan](docs/LOOM_SCRIPT.md). |
 
 ## Quick start
@@ -32,7 +32,7 @@ Python 3.12, Node.js 22, PostgreSQL 16, pgvector, and all application packages r
 After the public repository exists, clone it and run one command:
 
 ```bash
-git clone https://github.com/Minhal019/the-hallucination-trap.git
+git clone https://github.com/Minhal-sami1/the-hallucination-trap.git
 cd the-hallucination-trap
 make demo
 ```
