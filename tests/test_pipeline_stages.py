@@ -2,11 +2,13 @@ from __future__ import annotations
 
 import asyncio
 import json
+import math
+from dataclasses import replace
 
 import pytest
 from fastapi import HTTPException
 
-from api.app import generation, streaming
+from api.app import generation, ranking, streaming
 from api.app.citations import parse_citations
 from api.app.config import Settings
 from api.app.generation import generate_grounded
@@ -47,6 +49,93 @@ def test_bm25_prefers_document_with_query_terms() -> None:
         ],
     )
     assert scores[0] > scores[1]
+
+
+def test_multilingual_ranker_uses_lexical_support_to_resolve_primary_arabic_seed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Observed scores must keep the directly supported rule above a near semantic hit."""
+
+    frozen_probabilities = [0.651272, 0.671042]
+
+    class FrozenReranker:
+        @staticmethod
+        def rerank(query: str, documents: list[str]) -> list[float]:
+            assert query == (
+                "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن "
+                "نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+            )
+            assert len(documents) == 2
+            return [math.log(value / (1.0 - value)) for value in frozen_probabilities]
+
+    settings = Settings(
+        reranker_model=(
+            "onnx-community/gte-multilingual-reranker-base"
+            "@ee64367e35a2db0da46bb6497e13a18f8bd585cb"
+        )
+    )
+    monkeypatch.setattr(ranking, "get_settings", lambda: settings)
+    monkeypatch.setattr(ranking, "_load_reranker", lambda *args: FrozenReranker())
+    result = RetrievalResult(
+        articles=(
+            replace(
+                article("1042", "Article 1042.", "المادة 1042."),
+                bm25_score=25.4848,
+                hybrid_score=0.992258,
+            ),
+            replace(
+                article("1164", "Article 1164.", "المادة 1164."),
+                bm25_score=7.4182,
+                hybrid_score=0.945368,
+            ),
+        ),
+        confidence=0.8,
+        query_language="ar",
+    )
+
+    ranked = ranking.rank(
+        "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن "
+        "نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟",
+        result,
+        limit=2,
+    )
+
+    assert [item.article_number for item in ranked.articles] == ["1042", "1164"]
+
+
+def test_fallback_ranker_does_not_use_multilingual_bm25_weight(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    frozen_probabilities = [0.60, 0.61]
+
+    class FrozenReranker:
+        @staticmethod
+        def rerank(query: str, documents: list[str]) -> list[float]:
+            return [math.log(value / (1.0 - value)) for value in frozen_probabilities]
+
+    settings = Settings(reranker_model="BAAI/bge-reranker-base")
+    monkeypatch.setattr(ranking, "get_settings", lambda: settings)
+    monkeypatch.setattr(ranking, "_load_reranker", lambda *args: FrozenReranker())
+    result = RetrievalResult(
+        articles=(
+            replace(
+                article("10", "Article 10.", "المادة 10."),
+                bm25_score=100.0,
+                hybrid_score=0.60,
+            ),
+            replace(
+                article("11", "Article 11.", "المادة 11."),
+                bm25_score=0.0,
+                hybrid_score=0.61,
+            ),
+        ),
+        confidence=0.8,
+        query_language="en",
+    )
+
+    ranked = ranking.rank("Which article applies?", result, limit=2)
+
+    assert [item.article_number for item in ranked.articles] == ["11", "10"]
 
 
 def test_tokenizer_preserves_arabic_terms() -> None:

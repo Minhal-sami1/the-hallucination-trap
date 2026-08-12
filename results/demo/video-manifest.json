@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-12",
+  "local_only": true,
+  "deployed": false,
+  "supercut_commit": "bd47f71e939c0e377fd2f684941bce17f3949e06",
+  "videos": [
+    {
+      "language": "english",
+      "path": "results/demo/english/final.mp4",
+      "duration_seconds": 57.85,
+      "bytes": 17093557,
+      "video": "H.264 1920x1080 60 fps",
+      "audio": "AAC 48000 Hz stereo",
+      "sha256": "050FE075D02AFA93F41E3644069D293882289E14FF74ADA38359ADF70A9AA33D",
+      "full_decode": "passed"
+    },
+    {
+      "language": "arabic",
+      "path": "results/demo/arabic/final.mp4",
+      "duration_seconds": 55.184,
+      "bytes": 11769047,
+      "video": "H.264 1920x1080 60 fps",
+      "audio": "AAC 48000 Hz stereo",
+      "sha256": "FF269C5E12BF5A0BB4EAA58A7D8D0BFA6C3230CA2BBDC5D398BD3BED0074BFF8",
+      "full_decode": "passed"
+    }
+  ],
+  "application_verification": {
+    "local_url": "http://127.0.0.1:8899",
+    "corpus_articles": 1422,
+    "primary_arabic_trap_runs_passed": 10,
+    "primary_arabic_trap_runs_total": 10,
+    "fabricated_verdict_min_ms": 730,
+    "fabricated_verdict_max_ms": 788,
+    "grounded_verified_article": 1042,
+    "tests_passed": 115
+  }
+}

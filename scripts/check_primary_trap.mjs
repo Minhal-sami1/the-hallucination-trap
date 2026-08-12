@@ -7,6 +7,7 @@ const seedData = JSON.parse(await readFile(new URL('../data/seed_questions.json'
 const primarySeed = seedData.questions.find((seed) => seed.id === 'seed-ar-neighbour-light');
 if (!primarySeed) throw new Error('The committed primary Arabic seed is missing.');
 const question = primarySeed.question;
+const expectedArticles = new Set(primarySeed.expected_articles.map(String));
 
 if (!Number.isInteger(runCount) || runCount < 1) throw new Error('Run count must be positive.');
 
@@ -28,6 +29,7 @@ async function runAudit(index) {
   let buffer = '';
   let fabricatedMs = null;
   let reason = null;
+  const groundedVerifiedArticles = new Set();
   for (;;) {
     const { done, value } = await reader.read();
     if (done) break;
@@ -39,16 +41,36 @@ async function runAudit(index) {
       const event = frame.match(/^event:\s*(.+)$/m)?.[1];
       const dataText = frame.match(/^data:\s*(.+)$/m)?.[1];
       if (event !== 'citation' || !dataText) continue;
-      const citation = JSON.parse(dataText).citation;
+      const payload = JSON.parse(dataText);
+      const citation = payload.citation;
       if (citation?.verdict === 'FABRICATED' && fabricatedMs === null) {
         fabricatedMs = Math.round(performance.now() - started);
         reason = citation.reason;
       }
+      if (payload.side === 'grounded' && citation?.verdict === 'VERIFIED') {
+        groundedVerifiedArticles.add(String(citation.article_number));
+      }
     }
   }
-  const passed = fabricatedMs !== null && fabricatedMs < limitMs;
-  console.log(JSON.stringify({ run: index, fabricated_ms: fabricatedMs, passed }));
-  return { passed, fabricatedMs, reason };
+  const groundedExpected = [...groundedVerifiedArticles].some((article) =>
+    expectedArticles.has(article),
+  );
+  const passed = fabricatedMs !== null && fabricatedMs < limitMs && groundedExpected;
+  console.log(
+    JSON.stringify({
+      run: index,
+      fabricated_ms: fabricatedMs,
+      grounded_verified_articles: [...groundedVerifiedArticles],
+      grounded_expected: groundedExpected,
+      passed,
+    }),
+  );
+  return {
+    passed,
+    fabricatedMs,
+    reason,
+    groundedVerifiedArticles: [...groundedVerifiedArticles],
+  };
 }
 
 const runs = [];
@@ -62,6 +84,10 @@ const summary = {
   min_ms: Math.min(...values),
   max_ms: Math.max(...values),
   reason: runs.find((run) => run.reason)?.reason,
+  expected_grounded_articles: [...expectedArticles],
+  grounded_verified_articles: [
+    ...new Set(runs.flatMap((run) => run.groundedVerifiedArticles)),
+  ],
 };
 console.log(JSON.stringify(summary));
 if (passed !== runCount) process.exit(1);

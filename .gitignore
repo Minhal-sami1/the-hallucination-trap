@@ -10,6 +10,10 @@ htmlcov/
 node_modules/
 web/dist/
 results/*.tmp
+results/demo/**/take/
+results/demo/**/*.mp4
+results/demo/**/*.mp3
+results/demo/**/*.wav
 .cache/
 .DS_Store
 Thumbs.db

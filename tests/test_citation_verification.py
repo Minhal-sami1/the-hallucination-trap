@@ -16,6 +16,7 @@ SOURCE_URL = (
 SOURCE_URL_AR = "https://uaelegislation.gov.ae/ar/legislations/4011"
 LAW = LawRecord(
     law_name="Federal Decree by Law No. 25 of 2025",
+    law_name_ar="مرسوم بقانون اتحادي رقم (25) لسنة 2025",
     law_number="25",
     law_year=2025,
     article_count=1422,
@@ -81,6 +82,9 @@ def test_the_known_real_citation_is_verified_in_arabic_form() -> None:
     assert verdict.verdict is Verdict.VERIFIED
     assert verdict.article == ARTICLE_261
     assert verdict.source_url == SOURCE_URL_AR
+    assert verdict.reason == (
+        "تطابق المرجع تماماً مع المادة في مجموعة القوانين المحمّلة."
+    )
 
 
 def test_a_known_fake_article_in_a_loaded_law_is_fabricated() -> None:
@@ -101,6 +105,21 @@ def test_a_known_fake_article_in_a_loaded_law_is_fabricated() -> None:
     )
 
 
+def test_a_known_fake_arabic_citation_explains_the_fabrication_in_arabic() -> None:
+    repository = InMemoryArticleRepository(laws=[LAW], articles=[ARTICLE_261])
+    citation = parse_citations(
+        "المادة ٢٦١٠ من مرسوم بقانون اتحادي رقم (٢٥) لسنة ٢٠٢٥"
+    )[0]
+
+    verdict = verify_citation(citation, repository)
+
+    assert verdict.verdict is Verdict.FABRICATED
+    assert verdict.reason == (
+        "يحتوي مرسوم بقانون اتحادي رقم (25) لسنة 2025 على 1,422 مادة؛ "
+        "المادة 2610 غير موجودة."
+    )
+
+
 def test_a_citation_outside_the_loaded_corpus_is_unverifiable() -> None:
     repository = InMemoryArticleRepository(laws=[LAW], articles=[ARTICLE_261])
     citation = parse_citations("Article 7 of Federal Law No. 99 of 2030")[0]
@@ -110,6 +129,42 @@ def test_a_citation_outside_the_loaded_corpus_is_unverifiable() -> None:
     assert verdict.verdict is Verdict.UNVERIFIABLE
     assert verdict.reason == (
         "Federal Law No. 99 of 2030 is outside the loaded corpus."
+    )
+
+
+def test_an_arabic_citation_outside_the_corpus_explains_the_scope_in_arabic() -> None:
+    repository = InMemoryArticleRepository(laws=[LAW], articles=[ARTICLE_261])
+    citation = parse_citations(
+        "المادة ٧ من القانون الاتحادي رقم ٩٩ لسنة ٢٠٣٠"
+    )[0]
+
+    verdict = verify_citation(citation, repository)
+
+    assert verdict.verdict is Verdict.UNVERIFIABLE
+    assert verdict.reason == (
+        "القانون الاتحادي رقم 99 لسنة 2030 خارج مجموعة القوانين المحمّلة."
+    )
+
+
+def test_an_ambiguous_arabic_law_scope_has_an_arabic_reason() -> None:
+    older_law = LawRecord(
+        law_name="Federal Decree by Law No. 25 of 2024",
+        law_name_ar="مرسوم بقانون اتحادي رقم (25) لسنة 2024",
+        law_number="25",
+        law_year=2024,
+        article_count=900,
+    )
+    repository = InMemoryArticleRepository(
+        laws=[LAW, older_law],
+        articles=[ARTICLE_261],
+    )
+    citation = parse_citations("المادة ٢٦١ من مرسوم بقانون اتحادي رقم ٢٥")[0]
+
+    verdict = verify_citation(citation, repository)
+
+    assert verdict.verdict is Verdict.UNVERIFIABLE
+    assert verdict.reason == (
+        "تعذر ربط المرجع بقانون واحد في مجموعة القوانين المحمّلة."
     )
 
 
@@ -316,6 +371,29 @@ def test_an_incomplete_stream_fragment_is_not_called_fabricated() -> None:
     assert verdict.reason == ("Citation is incomplete; no article number is available.")
 
 
+def test_an_incomplete_arabic_fragment_has_an_arabic_reason() -> None:
+    repository = InMemoryArticleRepository(laws=[LAW], articles=[ARTICLE_261])
+    citation = parse_citations("المادة ؟؟؟ تنطبق.")[0]
+
+    verdict = verify_citation(citation, repository)
+
+    assert verdict.verdict is Verdict.UNVERIFIABLE
+    assert verdict.reason == "المرجع غير مكتمل؛ لا يتضمن رقم المادة."
+
+
+def test_an_arabic_citation_with_unresolved_law_scope_has_an_arabic_reason() -> None:
+    repository = InMemoryArticleRepository(laws=[LAW], articles=[ARTICLE_261])
+    citation = parse_citations(
+        "بموجب قانون المعاملات المدنية السابق، تنص المادة ١٥٠٠ على القاعدة."
+    )[0]
+
+    verdict = verify_citation(citation, repository)
+
+    assert citation.is_partial is True
+    assert verdict.verdict is Verdict.UNVERIFIABLE
+    assert verdict.reason == "المرجع غير مكتمل؛ تعذر تحديد نطاق القانون."
+
+
 def test_an_unscoped_short_citation_is_unverifiable() -> None:
     repository = InMemoryArticleRepository(laws=[LAW], articles=[ARTICLE_261])
     citation = parse_citations("The answer relies on Art. 261.")[0]
@@ -325,6 +403,18 @@ def test_an_unscoped_short_citation_is_unverifiable() -> None:
     assert verdict.verdict is Verdict.UNVERIFIABLE
     assert verdict.reason == (
         "Citation does not identify a law; verification needs a law context."
+    )
+
+
+def test_an_unscoped_arabic_citation_has_an_arabic_reason() -> None:
+    repository = InMemoryArticleRepository(laws=[LAW], articles=[ARTICLE_261])
+    citation = parse_citations("تعتمد الإجابة على المادة ٢٦١.")[0]
+
+    verdict = verify_citation(citation, repository)
+
+    assert verdict.verdict is Verdict.UNVERIFIABLE
+    assert verdict.reason == (
+        "لا يحدد المرجع قانوناً؛ يلزم تحديد سياق القانون للتحقق منه."
     )
 
 

@@ -1,0 +1,42 @@
+{
+  "version": 0,
+  "app_url": "http://127.0.0.1:8899/",
+  "music_track": "off",
+  "scenes": [
+    {
+      "name": "trap-arabic",
+      "priority": 1,
+      "entry": {
+        "url": "http://127.0.0.1:8899/",
+        "prelude": [
+          { "kind": "click", "selector": ".language-toggle", "duration_ms": 500 }
+        ]
+      },
+      "depends_on": [],
+      "actions": [
+        { "kind": "wait", "duration_ms": 5000 },
+        { "kind": "hover", "selector": ".mode-ribbon", "focus_selector": ".workbench", "duration_ms": 5000 },
+        { "kind": "click", "selector": ".seed-chip:first-child", "focus_selector": ".question-form", "duration_ms": 1800 },
+        { "kind": "click", "selector": ".run-button", "focus_selector": ".workbench", "duration_ms": 1200 },
+        { "kind": "wait", "duration_ms": 1200 },
+        { "kind": "hover", "selector": ".audit-card.verdict-fabricated", "focus_selector": ".audit-card.verdict-fabricated", "duration_ms": 14000 }
+      ],
+      "hold_ms": 1200
+    },
+    {
+      "name": "measured-results-arabic",
+      "priority": 2,
+      "entry": {
+        "url": "http://127.0.0.1:8899/results",
+        "prelude": []
+      },
+      "depends_on": ["trap-arabic"],
+      "actions": [
+        { "kind": "wait", "duration_ms": 3000 },
+        { "kind": "hover", "selector": ".metrics-grid", "focus_selector": ".metrics-grid", "duration_ms": 10000 },
+        { "kind": "hover", "selector": ".site-footer", "focus_selector": ".site-footer", "duration_ms": 8000 }
+      ],
+      "hold_ms": 2500
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+A legal answer can sound perfect and still cite a law that does not exist. Watch Article fourteen seventy-one.
+
+The Hallucination Trap sends one UAE law question through two paths. Left is a visibly cached, ungrounded model run. Right retrieves and ranks official law, then can cite only retrieved articles.
+
+A building collapses eight years after delivery. Both answers stream—and there it is: red. This law ends at Article fourteen twenty-two. Article fourteen seventy-one is fabricated.
+
+The grounded path cites Article eight twenty-one. Green proves the exact law, year, and article exist; it does not automatically prove every conclusion. The card shows the official excerpt and exact source link.
+
+Across fifty checked questions: ninety percent precision, eighty-eight point two four percent recall, and zero of eighty-four real citations falsely marked fabricated.
+
+Fluent is not defensible. Every citation should survive the record.

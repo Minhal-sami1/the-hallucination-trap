@@ -117,14 +117,28 @@ def rank(question: str, result: RetrievalResult, *, limit: int = 6) -> Retrieval
         for article, probability in zip(result.articles, probabilities, strict=True)
     ]
     multilingual = settings.reranker_model.startswith(f"{_GTE_REPOSITORY}@")
-    rerank_weight = 0.86 if multilingual else (0.35 if result.query_language == "ar" else 0.72)
-    hybrid_weight = 1.0 - rerank_weight
-    reranked.sort(
-        key=lambda article: (
-            rerank_weight * article.rerank_score + hybrid_weight * article.hybrid_score
-        ),
-        reverse=True,
-    )
+    if multilingual:
+        max_bm25 = max((article.bm25_score for article in reranked), default=0.0)
+
+        def ranking_score(article) -> float:
+            normalized_bm25 = article.bm25_score / max_bm25 if max_bm25 > 0 else 0.0
+            return (
+                0.84 * article.rerank_score
+                + 0.14 * article.hybrid_score
+                + 0.02 * normalized_bm25
+            )
+
+    else:
+        rerank_weight = 0.35 if result.query_language == "ar" else 0.72
+        hybrid_weight = 1.0 - rerank_weight
+
+        def ranking_score(article) -> float:
+            return (
+                rerank_weight * article.rerank_score
+                + hybrid_weight * article.hybrid_score
+            )
+
+    reranked.sort(key=ranking_score, reverse=True)
     top = tuple(reranked[:limit])
     confidence = min(
         1.0,

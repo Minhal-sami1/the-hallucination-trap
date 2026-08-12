@@ -1,0 +1,9 @@
+{
+  "provider": "Fish Audio",
+  "tts_model": "s2-pro",
+  "voice_id": "2f1c05cccd35411e96f1197c1e75540c",
+  "language": "en",
+  "script": "demo/scripts/english.txt",
+  "duration_seconds": 55.118375,
+  "api_key_persisted": false
+}

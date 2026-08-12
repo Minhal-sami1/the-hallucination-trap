@@ -100,6 +100,19 @@ def law_name_matches(
     )
 
 
+def _arabic_law_identity(law: LawRecord) -> str:
+    """Return an Arabic law identity even when an Arabic title is unavailable."""
+
+    if law.law_name_ar:
+        return law.law_name_ar
+    law_type = (
+        "مرسوم بقانون اتحادي"
+        if _law_kind(law.law_name) == "federal_decree_law"
+        else "قانون اتحادي"
+    )
+    return f"{law_type} رقم {law.law_number} لسنة {law.law_year}"
+
+
 class InMemoryArticleRepository:
     """Deterministic repository used by unit tests and offline checks."""
 
@@ -175,14 +188,22 @@ def verify_citation(
         return CitationVerdict(
             verdict=Verdict.UNVERIFIABLE,
             citation=citation,
-            reason="Citation is incomplete; no article number is available.",
+            reason=(
+                "المرجع غير مكتمل؛ لا يتضمن رقم المادة."
+                if citation.language == "ar"
+                else "Citation is incomplete; no article number is available."
+            ),
         )
 
     if citation.is_partial:
         return CitationVerdict(
             verdict=Verdict.UNVERIFIABLE,
             citation=citation,
-            reason="Citation is incomplete; its law scope could not be resolved.",
+            reason=(
+                "المرجع غير مكتمل؛ تعذر تحديد نطاق القانون."
+                if citation.language == "ar"
+                else "Citation is incomplete; its law scope could not be resolved."
+            ),
         )
 
     law_number = citation.law_number
@@ -197,7 +218,14 @@ def verify_citation(
         return CitationVerdict(
             verdict=Verdict.UNVERIFIABLE,
             citation=citation,
-            reason=("Citation does not identify a law; verification needs a law context."),
+            reason=(
+                "لا يحدد المرجع قانوناً؛ يلزم تحديد سياق القانون للتحقق منه."
+                if citation.language == "ar"
+                else (
+                    "Citation does not identify a law; "
+                    "verification needs a law context."
+                )
+            ),
         )
 
     laws = repository.find_laws(
@@ -206,22 +234,35 @@ def verify_citation(
         law_name=citation.law_name,
     )
     if not laws:
-        if law_number is not None and law_year is not None:
+        if citation.language == "ar":
+            if law_number is not None and law_year is not None:
+                law_type = citation.law_name or "القانون الاتحادي"
+                scope = f"{law_type} رقم {law_number} لسنة {law_year}"
+            else:
+                scope = citation.raw
+            reason = f"{scope} خارج مجموعة القوانين المحمّلة."
+        elif law_number is not None and law_year is not None:
             law_type = citation.law_name or "Federal Law"
             scope = f"{law_type} No. {law_number} of {law_year}"
+            reason = f"{scope} is outside the loaded corpus."
         else:
             scope = citation.raw
+            reason = f"{scope} is outside the loaded corpus."
         return CitationVerdict(
             verdict=Verdict.UNVERIFIABLE,
             citation=citation,
-            reason=f"{scope} is outside the loaded corpus.",
+            reason=reason,
         )
 
     if len(laws) != 1:
         return CitationVerdict(
             verdict=Verdict.UNVERIFIABLE,
             citation=citation,
-            reason="The citation cannot be resolved to one law in the loaded corpus.",
+            reason=(
+                "تعذر ربط المرجع بقانون واحد في مجموعة القوانين المحمّلة."
+                if citation.language == "ar"
+                else "The citation cannot be resolved to one law in the loaded corpus."
+            ),
         )
 
     law = laws[0]
@@ -235,8 +276,16 @@ def verify_citation(
             verdict=Verdict.FABRICATED,
             citation=citation,
             reason=(
-                f"{law.law_name} contains {law.article_count:,} articles; "
-                f"Article {citation.article_number} does not exist."
+                (
+                    f"يحتوي {_arabic_law_identity(law)} على "
+                    f"{law.article_count:,} مادة؛ "
+                    f"المادة {citation.article_number} غير موجودة."
+                )
+                if citation.language == "ar"
+                else (
+                    f"{law.law_name} contains {law.article_count:,} articles; "
+                    f"Article {citation.article_number} does not exist."
+                )
             ),
         )
 
@@ -244,5 +293,9 @@ def verify_citation(
         verdict=Verdict.VERIFIED,
         citation=citation,
         article=article,
-        reason="Exact article match in the loaded corpus.",
+        reason=(
+            "تطابق المرجع تماماً مع المادة في مجموعة القوانين المحمّلة."
+            if citation.language == "ar"
+            else "Exact article match in the loaded corpus."
+        ),
     )

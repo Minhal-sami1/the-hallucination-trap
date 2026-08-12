@@ -1,0 +1,9 @@
+{
+  "provider": "Fish Audio",
+  "tts_model": "s2-pro",
+  "voice_id": "41e9a2ebe92c45e5a5485edef78a9d6b",
+  "language": "ar",
+  "script": "demo/scripts/arabic.txt",
+  "duration_seconds": 50.050625,
+  "api_key_persisted": false
+}
