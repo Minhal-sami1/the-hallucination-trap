@@ -183,10 +183,10 @@ Write-Host "Subscription: $($account.name) ($($account.id))"
 # Never adopt a resource group that does not match this deployment profile.
 $resourceGroupExists = Test-AzCommand -CommandArgs @('group', 'show', '--name', $ResourceGroup)
 if ($resourceGroupExists) {
-    $resourceGroup = (Invoke-AzText -CommandArgs @(
+    $resourceGroupRecord = (Invoke-AzText -CommandArgs @(
         'group', 'show', '--name', $ResourceGroup, '--output', 'json', '--only-show-errors'
     )) | ConvertFrom-Json
-    Assert-DedicatedResource -Resource $resourceGroup -ResourceType 'Resource group' -ResourceName $ResourceGroup
+    Assert-DedicatedResource -Resource $resourceGroupRecord -ResourceType 'Resource group' -ResourceName $ResourceGroup
 }
 
 # Check the paid database offer before this script creates a new server. Azure
@@ -291,11 +291,11 @@ if (-not $containerEnvironmentExists) {
         '--tags') + $ProjectTags + @('--only-show-errors', '--output', 'none'))
 }
 else {
-    $containerEnvironment = (Invoke-AzText -CommandArgs @(
+    $containerEnvironmentRecord = (Invoke-AzText -CommandArgs @(
         'containerapp', 'env', 'show', '--name', $ContainerEnvironment,
         '--resource-group', $ResourceGroup, '--output', 'json', '--only-show-errors'
     )) | ConvertFrom-Json
-    Assert-DedicatedResource -Resource $containerEnvironment -ResourceType 'Container Apps environment' -ResourceName $ContainerEnvironment
+    Assert-DedicatedResource -Resource $containerEnvironmentRecord -ResourceType 'Container Apps environment' -ResourceName $ContainerEnvironment
 }
 
 $appExists = Test-AzCommand -CommandArgs @('containerapp', 'show', '--name', $ContainerApp, '--resource-group', $ResourceGroup)
