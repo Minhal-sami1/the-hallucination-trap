@@ -329,27 +329,59 @@ if (-not $registryServer -or -not $registryUsername -or -not $registryPassword) 
     throw 'Azure did not return complete credentials for the dedicated container registry.'
 }
 
+$repositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
+$repositoryRootForGit = $repositoryRoot.Replace('\', '/')
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+    throw 'Git is required to create a clean, commit-exact Azure build context.'
+}
+$gitTag = ((& git -c "safe.directory=$repositoryRootForGit" -C $repositoryRoot rev-parse --short=12 HEAD 2>$null) | Out-String).Trim()
+if ($LASTEXITCODE -ne 0 -or -not $gitTag) {
+    throw 'The deployment source must be a Git worktree with a committed HEAD.'
+}
+$gitChanges = ((& git -c "safe.directory=$repositoryRootForGit" -C $repositoryRoot status --porcelain --untracked-files=normal 2>$null) | Out-String).Trim()
+if ($LASTEXITCODE -ne 0) {
+    throw 'Git could not verify the deployment worktree.'
+}
+if ($gitChanges) {
+    throw 'Commit or remove all non-ignored worktree changes before deployment. Azure builds the exact committed HEAD.'
+}
+
 if (-not $ImageTag) {
-    $gitTag = ''
-    if (Get-Command git -ErrorAction SilentlyContinue) {
-        $gitTag = ((& git -c "safe.directory=$((Resolve-Path (Join-Path $PSScriptRoot '..')).Path.Replace('\', '/'))" rev-parse --short=12 HEAD 2>$null) | Out-String).Trim()
-    }
     $stamp = (Get-Date).ToUniversalTime().ToString('yyyyMMddHHmmss')
-    $ImageTag = if ($gitTag) { "$gitTag-$stamp" } else { $stamp }
+    $ImageTag = "$gitTag-$stamp"
 }
 $image = "$registryServer/${ImageRepository}:$ImageTag"
 
-Write-Host "Building $image from the root production Dockerfile."
-$repositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-Push-Location $repositoryRoot
+Write-Host "Building $image from the committed root production Dockerfile."
+$deploymentRoot = Join-Path $repositoryRoot '.deploy'
+$buildContextRoot = Join-Path $deploymentRoot "acr-context-$ImageTag"
+$archivePath = Join-Path $buildContextRoot 'source.tar'
+New-Item -ItemType Directory -Path $buildContextRoot -Force | Out-Null
 try {
+    & git -c "safe.directory=$repositoryRootForGit" -C $repositoryRoot archive `
+        '--format=tar' "--output=$archivePath" HEAD
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Git failed to create the commit-exact Azure build archive.'
+    }
+    & tar -xf $archivePath -C $buildContextRoot
+    if ($LASTEXITCODE -ne 0) {
+        throw 'The commit-exact Azure build archive could not be extracted.'
+    }
+    Remove-Item -LiteralPath $archivePath -Force
     Invoke-Az -CommandArgs @(
         'acr', 'build', '--registry', $RegistryName, '--resource-group', $ResourceGroup,
-        '--image', "${ImageRepository}:$ImageTag", '--file', 'Dockerfile', '.',
+        '--image', "${ImageRepository}:$ImageTag", '--file', 'Dockerfile', $buildContextRoot,
         '--platform', 'linux/amd64', '--timeout', '3600', '--only-show-errors')
 }
 finally {
-    Pop-Location
+    if (Test-Path -LiteralPath $buildContextRoot) {
+        $resolvedBuildContext = (Resolve-Path -LiteralPath $buildContextRoot).Path
+        $resolvedDeploymentRoot = (Resolve-Path -LiteralPath $deploymentRoot).Path
+        if (-not $resolvedBuildContext.StartsWith($resolvedDeploymentRoot + '\')) {
+            throw 'Build-context cleanup target escaped the repository deployment directory.'
+        }
+        Remove-Item -LiteralPath $resolvedBuildContext -Recurse -Force
+    }
 }
 
 $serverExists = $preflightServerExists

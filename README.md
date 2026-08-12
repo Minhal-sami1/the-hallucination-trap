@@ -314,6 +314,7 @@ The current subscription role can manage ACR but cannot create role assignments.
 Requirements:
 
 - Azure CLI
+- Git and a clean committed worktree
 - internet access for the script to install or upgrade the `containerapp` CLI extension
 - an authenticated Azure account: `az login`
 - Contributor access to the target subscription
@@ -325,7 +326,7 @@ Deploy from PowerShell:
 powershell -ExecutionPolicy Bypass -File scripts/deploy_azure.ps1 -SubscriptionId <subscription-id> -Location uaenorth
 ```
 
-The script is rerunnable. It rejects an existing named resource before reuse or update unless its UAE North location and all dedicated ownership tags match. It prints the public HTTPS URL and exact verification commands only after the initialization job succeeds and `/health` reports all 1,422 articles. Do not commit `HALLITRAP_DB_PASSWORD` or any provider key. If you set `HALLITRAP_DB_PASSWORD`, keep it only in the current process environment.
+The script is rerunnable. It rejects an existing named resource before reuse or update unless its UAE North location and all dedicated ownership tags match. Before the remote build, it uses `git archive` to make a temporary build context from the exact committed `HEAD`. Ignored local caches and uncommitted files cannot enter the image. The script stops if the worktree is dirty. It prints the public HTTPS URL and exact verification commands only after the initialization job succeeds and `/health` reports all 1,422 articles. Do not commit `HALLITRAP_DB_PASSWORD` or any provider key. If you set `HALLITRAP_DB_PASSWORD`, keep it only in the current process environment.
 
 After deployment, run:
 
