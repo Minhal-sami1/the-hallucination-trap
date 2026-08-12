@@ -1,0 +1,4 @@
+# Preserve official source captures byte-for-byte. Their whitespace and hashes
+# are evidence, not formatting choices.
+data/raw/official_article_dom_2025_*.html -text -diff whitespace=-trailing-space
+data/raw/*.pdf binary

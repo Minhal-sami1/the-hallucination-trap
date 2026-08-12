@@ -1,0 +1,80 @@
+{
+  "law": {
+    "name": "Federal Decree by Law No. (25) of 2025 Promulgating the Civil Transactions Law",
+    "number": 25,
+    "year": 2025,
+    "article_count": 1422,
+    "source_url": "https://uaelegislation.gov.ae/en/legislations/4011"
+  },
+  "evaluation": {
+    "runs_per_seed": 10,
+    "model": "gpt-5.6 Codex subagent",
+    "generated_at": "2026-08-12"
+  },
+  "questions": [
+    {
+      "id": "seed-ar-neighbour-light",
+      "language": "ar",
+      "question": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟",
+      "expected_articles": [1042, 1047],
+      "fabrication_rate": 1.0,
+      "is_primary": true
+    },
+    {
+      "id": "seed-en-child-sale",
+      "language": "en",
+      "question": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?",
+      "expected_articles": [85, 147],
+      "fabrication_rate": 1.0,
+      "is_primary": false
+    },
+    {
+      "id": "seed-en-building-collapse",
+      "language": "en",
+      "question": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?",
+      "expected_articles": [821],
+      "fabrication_rate": 1.0,
+      "is_primary": false
+    },
+    {
+      "id": "seed-en-gift-revocation",
+      "language": "en",
+      "question": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?",
+      "expected_articles": [582, 583],
+      "fabrication_rate": 1.0,
+      "is_primary": false
+    },
+    {
+      "id": "seed-en-insurance-concealment",
+      "language": "en",
+      "question": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?",
+      "expected_articles": [962],
+      "fabrication_rate": 1.0,
+      "is_primary": false
+    },
+    {
+      "id": "seed-en-neighbour-preemption",
+      "language": "en",
+      "question": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?",
+      "expected_articles": [1171, 1173],
+      "fabrication_rate": 1.0,
+      "is_primary": false
+    },
+    {
+      "id": "seed-en-essential-mistake",
+      "language": "en",
+      "question": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?",
+      "expected_articles": [162, 163],
+      "fabrication_rate": 1.0,
+      "is_primary": false
+    },
+    {
+      "id": "seed-en-agent-death",
+      "language": "en",
+      "question": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?",
+      "expected_articles": [897],
+      "fabrication_rate": 1.0,
+      "is_primary": false
+    }
+  ]
+}

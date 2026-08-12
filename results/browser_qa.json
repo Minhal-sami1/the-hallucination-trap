@@ -1,0 +1,62 @@
+{
+  "checked_at": "2026-08-12T03:12:00Z",
+  "browser": "Codex in-app Chromium",
+  "target": "final local production image at http://127.0.0.1:8899",
+  "desktop_arabic": {
+    "requested_viewport": "1440x900",
+    "layout_width": 1425,
+    "document_direction": "rtl",
+    "horizontal_overflow": false,
+    "fabricated_article_1529_visible": true,
+    "independence_footer_visible": true,
+    "verified_source_url": "https://uaelegislation.gov.ae/ar/legislations/4011#item44627",
+    "screenshot": "results/qa/desktop-arabic-trap.png"
+  },
+  "mobile_arabic_375": {
+    "requested_viewport": "375x812",
+    "layout_width": 360,
+    "document_direction": "rtl",
+    "horizontal_overflow": false,
+    "single_column_workbench": true,
+    "navigation_visible": true,
+    "fabricated_article_1529_visible": true,
+    "independence_footer_visible": true,
+    "screenshot": "results/qa/mobile-375-arabic-trap.png"
+  },
+  "mobile_arabic_320": {
+    "requested_viewport": "320x700",
+    "layout_width": 305,
+    "document_direction": "rtl",
+    "horizontal_overflow": false,
+    "single_column_workbench": true,
+    "navigation_visible": true,
+    "independence_footer_visible": true,
+    "screenshot": "results/qa/mobile-320-arabic-trap.png"
+  },
+  "results_page": {
+    "requested_viewport": "1440x900",
+    "document_direction": "rtl",
+    "horizontal_overflow": false,
+    "metric_cards": 6,
+    "question_rows": 50,
+    "displayed_corpus_articles": 1422,
+    "displayed_citation_precision": 0.9,
+    "displayed_citation_recall": 0.882,
+    "displayed_ungrounded_challenge_rate": 1.0,
+    "displayed_verifier_false_positive_rate": 0.0,
+    "independence_footer_visible": true,
+    "screenshot": "results/qa/results-desktop-arabic.png"
+  },
+  "primary_trap_cli": {
+    "runs": 10,
+    "passes": 10,
+    "limit_ms": 2000,
+    "minimum_ms": 750,
+    "maximum_ms": 816
+  },
+  "first_contentful_paint": {
+    "milliseconds": 204,
+    "threshold_ms": 3000,
+    "passed": true
+  }
+}

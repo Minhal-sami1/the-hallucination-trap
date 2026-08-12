@@ -1,0 +1,2224 @@
+{
+  "generated_at": "2026-08-12T02:58:25.164019+00:00",
+  "command": "make eval",
+  "corpus": {
+    "name": "Federal Decree by Law No. (25) of 2025 Promulgating the Civil Transactions Law",
+    "number": 25,
+    "year": 2025,
+    "article_count": 1422,
+    "source_url": "https://uaelegislation.gov.ae/en/legislations/4011"
+  },
+  "corpus_article_count": 1422,
+  "models": {
+    "ungrounded_seed_producer": "gpt-5.6 Codex subagent",
+    "embedding": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0",
+    "reranker": "onnx-community/gte-multilingual-reranker-base@ee64367e35a2db0da46bb6497e13a18f8bd585cb",
+    "grounded_generator": "local constrained top-1 extractive synthesis"
+  },
+  "pipeline": [
+    "retrieve",
+    "rank",
+    "generate",
+    "parse",
+    "verify"
+  ],
+  "inputs": {
+    "evaluation_questions_sha256": "d3ce190408d04b780c973c913e728f72850d9803482648c8de8d4dc5df200059",
+    "seed_runs_sha256": "dae2fd7fe0b42d79d784d6edac83c29c97c89a9e7043d5ac85c9f099ac8c3e49",
+    "verifier_real_controls_sha256": "ae745fce6b2478385838ce6ecc27a4ccaa15b44fc7e8167cc6556db610369095"
+  },
+  "metric_definitions": {
+    "citation_precision": "Micro exact-match precision over unique article numbers parsed from non-refused grounded answers against the hand-checked expected sets.",
+    "citation_recall": "Micro exact-match recall over all hand-checked expected article numbers; refused answers contribute zero predicted citations.",
+    "fabrication_rate_ungrounded": "Share of the 80 answer texts for which the runtime parser and exact-law verifier detect at least one nonexistent article. This does not trust the committed has_fabricated_article boolean.",
+    "verifier_false_positive_rate": "Known real current and archived citation forms marked FABRICATED divided by all known real checks. Archived-law controls must be UNVERIFIABLE, not FABRICATED. UNVERIFIABLE is reported separately."
+  },
+  "evaluation_scope": {
+    "grounded_path": "Current local top-1 extractive fallback with the production confidence gate.",
+    "cached_grounded_answers_used": false,
+    "questions_are_corpus_derived": true,
+    "expected_articles_are_not_passed_to_retrieval_or_ranking": true,
+    "semantic_claim_support_is_evaluated": false,
+    "seed_and_evaluation_sets_are_article_independent": false,
+    "seed_expected_articles": [
+      "85",
+      "147",
+      "162",
+      "163",
+      "582",
+      "583",
+      "821",
+      "897",
+      "962",
+      "1042",
+      "1047",
+      "1171",
+      "1173"
+    ],
+    "overlapping_seed_and_evaluation_articles": [
+      "85",
+      "147",
+      "162",
+      "163",
+      "582",
+      "583",
+      "821",
+      "897",
+      "962",
+      "1042",
+      "1047",
+      "1171",
+      "1173"
+    ],
+    "evaluation_questions_touching_seed_articles": 12,
+    "verifier_verified_means": "The cited article number exists in the identified law. It does not prove that the article semantically supports the answer."
+  },
+  "seed_provenance": {
+    "producer_label": "gpt-5.6 Codex subagent",
+    "generation_mode_claim": "closed-book ungrounded generation; no retrieval or corpus consultation during answer composition",
+    "exact_system_instruction": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+    "provider_response_ids_present": false,
+    "sampling_parameters_present": false,
+    "selection_conditioned_on_fabrication": true,
+    "interpretation": "The declared fabrication rate describes a retained challenge set. It is not an unbiased estimate of the named model's general legal citation fabrication rate. The artifact has no provider response IDs or recorded sampling parameters, so independent replay is not possible."
+  },
+  "metrics": {
+    "citation_precision": 0.9,
+    "citation_recall": 0.8824,
+    "citation_exact_match_rate": 0.88,
+    "answer_coverage": 1.0,
+    "retrieval_top_1_hit_rate": 0.9,
+    "retrieval_expected_article_recall_at_6": 0.9412,
+    "fabrication_rate_ungrounded": 1.0,
+    "declared_fabrication_rate_ungrounded": 1.0,
+    "end_to_end_detection_recall_on_declared_fabricated_runs": 1.0,
+    "verifier_false_positive_rate": 0.0,
+    "counts": {
+      "questions": 50,
+      "corpus_articles": 1422,
+      "grounded_correct_citations": 45,
+      "grounded_predicted_citations": 50,
+      "grounded_expected_citations": 51,
+      "grounded_exact_match_questions": 44,
+      "grounded_answered_questions": 50,
+      "retrieval_top_1_hits": 45,
+      "retrieval_expected_article_hits_at_6": 48,
+      "grounded_answer_citations_marked_fabricated": 0,
+      "grounded_answer_citations_marked_unverifiable": 0,
+      "ungrounded_runs": 80,
+      "ungrounded_runs_with_runtime_detected_fabrication": 80,
+      "ungrounded_runs_declared_with_fabrication": 80,
+      "ungrounded_label_mismatches": 0,
+      "real_citations_checked_by_verifier": 84,
+      "real_citations_wrongly_marked_fabricated": 0,
+      "real_citations_marked_unverifiable": 18
+    }
+  },
+  "ungrounded_runtime_audit": {
+    "total_runs": 80,
+    "declared_runs_with_fabrication": 80,
+    "runtime_detected_runs_with_fabrication": 80,
+    "parsed_citations": 80,
+    "verifier_fabricated_citations": 80,
+    "verifier_verified_citations": 0,
+    "verifier_unverifiable_citations": 0,
+    "label_mismatches": []
+  },
+  "verifier_real_controls": [
+    {
+      "id": "current-01",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-02",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-03",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-04",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-05",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-06",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-07",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-08",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-09",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-10",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-11",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-12",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-13",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-14",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "current-15",
+      "article_number": "261",
+      "expected_verdict": "VERIFIED",
+      "actual_verdict": "VERIFIED"
+    },
+    {
+      "id": "archived-01",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-02",
+      "article_number": "1528",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-03",
+      "article_number": "261",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-04",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-05",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-06",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-07",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-08",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-09",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-10",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-11",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-12",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-13",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-14",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-15",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-16",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-17",
+      "article_number": "1528",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    },
+    {
+      "id": "archived-18",
+      "article_number": "1500",
+      "expected_verdict": "UNVERIFIABLE",
+      "actual_verdict": "UNVERIFIABLE"
+    }
+  ],
+  "questions": [
+    {
+      "id": "eval-en-001",
+      "language": "en",
+      "question": "If no applicable legislative provision, Shari'ah ruling, or custom resolves a civil dispute, what source must the court use next?",
+      "expected_articles": [
+        "1"
+      ],
+      "ranked_articles": [
+        "1",
+        "74",
+        "3",
+        "1257",
+        "4",
+        "131"
+      ],
+      "predicted_articles": [
+        "1"
+      ],
+      "matched_articles": [
+        "1"
+      ],
+      "retrieval_confidence": 0.7529,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 1 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "1",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-002",
+      "language": "en",
+      "question": "Which calendar governs the calculation of statutory time limits unless another rule is stated?",
+      "expected_articles": [
+        "9"
+      ],
+      "ranked_articles": [
+        "9",
+        "1223",
+        "244",
+        "434",
+        "130",
+        "370"
+      ],
+      "predicted_articles": [
+        "9"
+      ],
+      "matched_articles": [
+        "9"
+      ],
+      "retrieval_confidence": 0.8263,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 9 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "9",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "9",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-003",
+      "language": "en",
+      "question": "Which country's law governs possession and ownership of an immovable property?",
+      "expected_articles": [
+        "18"
+      ],
+      "ranked_articles": [
+        "18",
+        "1218",
+        "1220",
+        "104",
+        "1169",
+        "19"
+      ],
+      "predicted_articles": [
+        "18"
+      ],
+      "matched_articles": [
+        "18"
+      ],
+      "retrieval_confidence": 0.757,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 18 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "18",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "18",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-004",
+      "language": "en",
+      "question": "If contracting parties choose no governing law and have different domiciles, which law normally governs their contractual obligations?",
+      "expected_articles": [
+        "19"
+      ],
+      "ranked_articles": [
+        "19",
+        "20",
+        "113",
+        "184",
+        "221",
+        "222"
+      ],
+      "predicted_articles": [
+        "19"
+      ],
+      "matched_articles": [
+        "19"
+      ],
+      "retrieval_confidence": 0.7883,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 19 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "19",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "19",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-005",
+      "language": "en",
+      "question": "May a UAE court apply a designated foreign-law rule that conflicts with UAE public order or public morals?",
+      "expected_articles": [
+        "29"
+      ],
+      "ranked_articles": [
+        "29",
+        "1",
+        "28",
+        "11",
+        "106",
+        "3"
+      ],
+      "predicted_articles": [
+        "29"
+      ],
+      "matched_articles": [
+        "29"
+      ],
+      "retrieval_confidence": 0.7918,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 29 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "29",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "29",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-006",
+      "language": "en",
+      "question": "Can a person avoid a civil rule by stating that they did not know the law?",
+      "expected_articles": [
+        "31"
+      ],
+      "ranked_articles": [
+        "84",
+        "85",
+        "260",
+        "86",
+        "16",
+        "145"
+      ],
+      "predicted_articles": [
+        "84"
+      ],
+      "matched_articles": [],
+      "retrieval_confidence": 0.6209,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 84 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "84",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "31",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-007",
+      "language": "en",
+      "question": "At what age does a child attain discernment for the capacity rules in this Law?",
+      "expected_articles": [
+        "85"
+      ],
+      "ranked_articles": [
+        "86",
+        "85",
+        "149",
+        "84",
+        "148",
+        "5"
+      ],
+      "predicted_articles": [
+        "86"
+      ],
+      "matched_articles": [],
+      "retrieval_confidence": 0.7214,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 86 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "86",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "85",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-008",
+      "language": "en",
+      "question": "Can a person validly waive their legal capacity by agreement?",
+      "expected_articles": [
+        "88"
+      ],
+      "ranked_articles": [
+        "443",
+        "88",
+        "86",
+        "5",
+        "189",
+        "174"
+      ],
+      "predicted_articles": [
+        "443"
+      ],
+      "matched_articles": [],
+      "retrieval_confidence": 0.7255,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 443 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "443",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "88",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-009",
+      "language": "en",
+      "question": "How does the Law classify ownership, usufruct, mortgage, possessory pledge, and privilege among real rights?",
+      "expected_articles": [
+        "110"
+      ],
+      "ranked_articles": [
+        "110",
+        "1404",
+        "1168",
+        "1218",
+        "18",
+        "1396"
+      ],
+      "predicted_articles": [
+        "110"
+      ],
+      "matched_articles": [
+        "110"
+      ],
+      "retrieval_confidence": 0.7672,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 110 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "110",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "110",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-010",
+      "language": "en",
+      "question": "May parties exclude the duty to disclose information that is decisive to contractual consent?",
+      "expected_articles": [
+        "122"
+      ],
+      "ranked_articles": [
+        "122",
+        "194",
+        "121",
+        "234",
+        "139",
+        "168"
+      ],
+      "predicted_articles": [
+        "122"
+      ],
+      "matched_articles": [
+        "122"
+      ],
+      "retrieval_confidence": 0.7424,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 122 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "122",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "122",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-011",
+      "language": "en",
+      "question": "When can an offer be revoked during the contractual session, and what happens if the offeror dies before acceptance?",
+      "expected_articles": [
+        "129"
+      ],
+      "ranked_articles": [
+        "129",
+        "125",
+        "130",
+        "306",
+        "425",
+        "212"
+      ],
+      "predicted_articles": [
+        "129"
+      ],
+      "matched_articles": [
+        "129"
+      ],
+      "retrieval_confidence": 0.8622,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 129 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "129",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "129",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-012",
+      "language": "en",
+      "question": "Who receives the rights and obligations when a representative contracts in the principal's name within the agency limits?",
+      "expected_articles": [
+        "142"
+      ],
+      "ranked_articles": [
+        "142",
+        "882",
+        "874",
+        "139",
+        "141",
+        "143"
+      ],
+      "predicted_articles": [
+        "142"
+      ],
+      "matched_articles": [
+        "142"
+      ],
+      "retrieval_confidence": 0.8387,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 142 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "142",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "142",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-013",
+      "language": "en",
+      "question": "What is the effect of a non-discerning minor's act disposing of property?",
+      "expected_articles": [
+        "147"
+      ],
+      "ranked_articles": [
+        "147",
+        "153",
+        "148",
+        "149",
+        "152",
+        "242"
+      ],
+      "predicted_articles": [
+        "147"
+      ],
+      "matched_articles": [
+        "147"
+      ],
+      "retrieval_confidence": 0.7614,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 147 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "147",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "147",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-014",
+      "language": "en",
+      "question": "How does the Law treat a discerning minor's financial act that is exclusively beneficial, exclusively detrimental, or between benefit and detriment?",
+      "expected_articles": [
+        "148"
+      ],
+      "ranked_articles": [
+        "148",
+        "149",
+        "153",
+        "192",
+        "1300",
+        "99"
+      ],
+      "predicted_articles": [
+        "148"
+      ],
+      "matched_articles": [
+        "148"
+      ],
+      "retrieval_confidence": 0.922,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 148 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "148",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "148",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-015",
+      "language": "en",
+      "question": "Does a tutor need court authorization to sell, mortgage, lend, settle, or partition a minor's property when the act is not ordinary administration?",
+      "expected_articles": [
+        "153"
+      ],
+      "ranked_articles": [
+        "153",
+        "149",
+        "152",
+        "156",
+        "870",
+        "1056"
+      ],
+      "predicted_articles": [
+        "153"
+      ],
+      "matched_articles": [
+        "153"
+      ],
+      "retrieval_confidence": 0.8503,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 153 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "153",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "153",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-016",
+      "language": "en",
+      "question": "Is a contract voidable when a mistake concerns the nature of the contract, a formation condition, or its subject matter?",
+      "expected_articles": [
+        "161"
+      ],
+      "ranked_articles": [
+        "161",
+        "187",
+        "184",
+        "193",
+        "189",
+        "163"
+      ],
+      "predicted_articles": [
+        "161"
+      ],
+      "matched_articles": [
+        "161"
+      ],
+      "retrieval_confidence": 0.9003,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 161 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "161",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "161",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-017",
+      "language": "en",
+      "question": "When can a party seek annulment for an essential mistake shared by, known to, or easily detectable by the other party?",
+      "expected_articles": [
+        "162"
+      ],
+      "ranked_articles": [
+        "162",
+        "164",
+        "169",
+        "178",
+        "191",
+        "122"
+      ],
+      "predicted_articles": [
+        "162"
+      ],
+      "matched_articles": [
+        "162"
+      ],
+      "retrieval_confidence": 0.808,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 162 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "162",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "162",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-018",
+      "language": "en",
+      "question": "When is a mistake about an item's desired attribute considered material?",
+      "expected_articles": [
+        "163"
+      ],
+      "ranked_articles": [
+        "163",
+        "497",
+        "506",
+        "164",
+        "816",
+        "1165"
+      ],
+      "predicted_articles": [
+        "163"
+      ],
+      "matched_articles": [
+        "163"
+      ],
+      "retrieval_confidence": 0.8333,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 163 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "163",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "163",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-019",
+      "language": "en",
+      "question": "What conduct constitutes deception during contract formation?",
+      "expected_articles": [
+        "170"
+      ],
+      "ranked_articles": [
+        "176",
+        "178",
+        "121",
+        "191",
+        "343",
+        "143"
+      ],
+      "predicted_articles": [
+        "176"
+      ],
+      "matched_articles": [],
+      "retrieval_confidence": 0.6993,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 176 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "176",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "170",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-020",
+      "language": "en",
+      "question": "Can deliberate silence about a decisive fact amount to contractual deception?",
+      "expected_articles": [
+        "171"
+      ],
+      "ranked_articles": [
+        "171",
+        "176",
+        "121",
+        "122",
+        "128",
+        "191"
+      ],
+      "predicted_articles": [
+        "171"
+      ],
+      "matched_articles": [
+        "171"
+      ],
+      "retrieval_confidence": 0.8585,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 171 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "171",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "171",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-021",
+      "language": "en",
+      "question": "What are the one-year and fifteen-year limits for asserting annulment based on mistake, deception, or coercion?",
+      "expected_articles": [
+        "191"
+      ],
+      "ranked_articles": [
+        "191",
+        "178",
+        "148",
+        "190",
+        "441",
+        "290"
+      ],
+      "predicted_articles": [
+        "191"
+      ],
+      "matched_articles": [
+        "191"
+      ],
+      "retrieval_confidence": 0.7924,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 191 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "191",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "191",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-022",
+      "language": "en",
+      "question": "How can a party revoke, modify, or rescind a valid and binding contract?",
+      "expected_articles": [
+        "232"
+      ],
+      "ranked_articles": [
+        "232",
+        "194",
+        "197",
+        "195",
+        "198",
+        "215"
+      ],
+      "predicted_articles": [
+        "232"
+      ],
+      "matched_articles": [
+        "232"
+      ],
+      "retrieval_confidence": 0.848,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 232 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "232",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "232",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-023",
+      "language": "en",
+      "question": "What happens when a person completes the stated act under a public prize promise, even without acting because of the promise?",
+      "expected_articles": [
+        "244"
+      ],
+      "ranked_articles": [
+        "244",
+        "243",
+        "1349",
+        "1369",
+        "946",
+        "542"
+      ],
+      "predicted_articles": [
+        "244"
+      ],
+      "matched_articles": [
+        "244"
+      ],
+      "retrieval_confidence": 0.8031,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 244 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "244",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "244",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-024",
+      "language": "en",
+      "question": "How does liability differ when harm is direct rather than caused indirectly?",
+      "expected_articles": [
+        "247"
+      ],
+      "ranked_articles": [
+        "247",
+        "267",
+        "253",
+        "249",
+        "245",
+        "252"
+      ],
+      "predicted_articles": [
+        "247"
+      ],
+      "matched_articles": [
+        "247"
+      ],
+      "retrieval_confidence": 0.7307,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 247 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "247",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "247",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-025",
+      "language": "en",
+      "question": "When can a public official avoid personal liability for harm caused while following a law or superior's order?",
+      "expected_articles": [
+        "251"
+      ],
+      "ranked_articles": [
+        "251",
+        "250",
+        "106",
+        "257",
+        "249",
+        "267"
+      ],
+      "predicted_articles": [
+        "251"
+      ],
+      "matched_articles": [
+        "251"
+      ],
+      "retrieval_confidence": 0.7587,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 251 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "251",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "251",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-026",
+      "language": "en",
+      "question": "Can a person recover performance made for an obligation whose cause never arose or later ceased?",
+      "expected_articles": [
+        "276"
+      ],
+      "ranked_articles": [
+        "276",
+        "350",
+        "336",
+        "277",
+        "296",
+        "298"
+      ],
+      "predicted_articles": [
+        "276"
+      ],
+      "matched_articles": [
+        "276"
+      ],
+      "retrieval_confidence": 0.8012,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 276 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "276",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "276",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-027",
+      "language": "en",
+      "question": "Who bears the risk of loss after the creditor is put in default, and what deposit remedy does the debtor have?",
+      "expected_articles": [
+        "301"
+      ],
+      "ranked_articles": [
+        "301",
+        "331",
+        "304",
+        "1338",
+        "344",
+        "386"
+      ],
+      "predicted_articles": [
+        "301"
+      ],
+      "matched_articles": [
+        "301"
+      ],
+      "retrieval_confidence": 0.809,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 301 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "301",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "301",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-028",
+      "language": "en",
+      "question": "What standard of care normally satisfies an obligation to preserve or manage a thing, and does it excuse fraud or gross fault?",
+      "expected_articles": [
+        "334"
+      ],
+      "ranked_articles": [
+        "334",
+        "938",
+        "804",
+        "848",
+        "871",
+        "312"
+      ],
+      "predicted_articles": [
+        "334"
+      ],
+      "matched_articles": [
+        "334"
+      ],
+      "retrieval_confidence": 0.7728,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 334 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "334",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "334",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-029",
+      "language": "en",
+      "question": "When may a court reduce agreed compensation, and when may a creditor claim more than the agreed amount?",
+      "expected_articles": [
+        "340"
+      ],
+      "ranked_articles": [
+        "340",
+        "468",
+        "344",
+        "370",
+        "277",
+        "256"
+      ],
+      "predicted_articles": [
+        "340"
+      ],
+      "matched_articles": [
+        "340"
+      ],
+      "retrieval_confidence": 0.8305,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 340 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "340",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "340",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-030",
+      "language": "en",
+      "question": "Does an assignment of a creditor's right require the debtor's consent for its validity?",
+      "expected_articles": [
+        "405"
+      ],
+      "ranked_articles": [
+        "405",
+        "420",
+        "1392",
+        "344",
+        "307",
+        "419"
+      ],
+      "predicted_articles": [
+        "405"
+      ],
+      "matched_articles": [
+        "405"
+      ],
+      "retrieval_confidence": 0.8599,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 405 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "405",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "405",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-031",
+      "language": "en",
+      "question": "What documents and accessories must a seller deliver with the subject matter of a sale?",
+      "expected_articles": [
+        "469"
+      ],
+      "ranked_articles": [
+        "469",
+        "478",
+        "479",
+        "513",
+        "483",
+        "512"
+      ],
+      "predicted_articles": [
+        "469"
+      ],
+      "matched_articles": [
+        "469"
+      ],
+      "retrieval_confidence": 0.8074,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 469 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "469",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "469",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-032",
+      "language": "en",
+      "question": "Can a seller rely on a contractual exclusion of defect liability after deliberately concealing the defect by fraud?",
+      "expected_articles": [
+        "497"
+      ],
+      "ranked_articles": [
+        "497",
+        "498",
+        "510",
+        "214",
+        "499",
+        "504"
+      ],
+      "predicted_articles": [
+        "497"
+      ],
+      "matched_articles": [
+        "497"
+      ],
+      "retrieval_confidence": 0.8064,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 497 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "497",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "497",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-033",
+      "language": "en",
+      "question": "When is a sale-defect warranty claim time-barred, and what fraud exception applies?",
+      "expected_articles": [
+        "510"
+      ],
+      "ranked_articles": [
+        "510",
+        "502",
+        "497",
+        "498",
+        "496",
+        "507"
+      ],
+      "predicted_articles": [
+        "510"
+      ],
+      "matched_articles": [
+        "510"
+      ],
+      "retrieval_confidence": 0.7599,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 510 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "510",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "510",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-034",
+      "language": "en",
+      "question": "What is a gift under the Civil Transactions Law?",
+      "expected_articles": [
+        "552"
+      ],
+      "ranked_articles": [
+        "552",
+        "558",
+        "554",
+        "561",
+        "570",
+        "555"
+      ],
+      "predicted_articles": [
+        "552"
+      ],
+      "matched_articles": [
+        "552"
+      ],
+      "retrieval_confidence": 0.5998,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 552 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "552",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "552",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-035",
+      "language": "en",
+      "question": "How is a gift formed and completed, and what documentation rules apply to immovable and movable gifts?",
+      "expected_articles": [
+        "554"
+      ],
+      "ranked_articles": [
+        "554",
+        "565",
+        "570",
+        "568",
+        "557",
+        "585"
+      ],
+      "predicted_articles": [
+        "554"
+      ],
+      "matched_articles": [
+        "554"
+      ],
+      "retrieval_confidence": 0.7739,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 554 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "554",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "554",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-036",
+      "language": "en",
+      "question": "Can a donor revoke a gift after the donee has taken possession and refuses consent?",
+      "expected_articles": [
+        "582",
+        "583"
+      ],
+      "ranked_articles": [
+        "582",
+        "589",
+        "585",
+        "553",
+        "561",
+        "583"
+      ],
+      "predicted_articles": [
+        "582"
+      ],
+      "matched_articles": [
+        "582"
+      ],
+      "retrieval_confidence": 0.9371,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 582 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "582",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "582",
+          "verdict": "VERIFIED"
+        },
+        {
+          "article_number": "583",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-037",
+      "language": "en",
+      "question": "What must a borrower return under a loan, and what happens to a condition requiring an extra benefit for the lender?",
+      "expected_articles": [
+        "591"
+      ],
+      "ranked_articles": [
+        "591",
+        "600",
+        "796",
+        "598",
+        "810",
+        "595"
+      ],
+      "predicted_articles": [
+        "591"
+      ],
+      "matched_articles": [
+        "591"
+      ],
+      "retrieval_confidence": 0.7736,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 591 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "591",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "591",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-038",
+      "language": "en",
+      "question": "For how long are an engineer and contractor jointly liable for a building's collapse or structural-safety defect, and when does the period start?",
+      "expected_articles": [
+        "821"
+      ],
+      "ranked_articles": [
+        "821",
+        "822",
+        "270",
+        "816",
+        "502",
+        "820"
+      ],
+      "predicted_articles": [
+        "821"
+      ],
+      "matched_articles": [
+        "821"
+      ],
+      "retrieval_confidence": 0.7741,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 821 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "821",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "821",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-039",
+      "language": "en",
+      "question": "What events extinguish an agency, and what protective steps follow the agent's death?",
+      "expected_articles": [
+        "897"
+      ],
+      "ranked_articles": [
+        "897",
+        "903",
+        "286",
+        "900",
+        "875",
+        "899"
+      ],
+      "predicted_articles": [
+        "897"
+      ],
+      "matched_articles": [
+        "897"
+      ],
+      "retrieval_confidence": 0.7898,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 897 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "897",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "897",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-en-040",
+      "language": "en",
+      "question": "What can an insurer demand after the insured conceals a material risk fact in bad faith, and what changes if bad faith is absent?",
+      "expected_articles": [
+        "962"
+      ],
+      "ranked_articles": [
+        "962",
+        "966",
+        "963",
+        "1229",
+        "121",
+        "278"
+      ],
+      "predicted_articles": [
+        "962"
+      ],
+      "matched_articles": [
+        "962"
+      ],
+      "retrieval_confidence": 0.8566,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "Article 962 of Federal Decree by Law No. 25 of 2025",
+          "article_number": "962",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "962",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-041",
+      "language": "ar",
+      "question": "هل يُعد حجب الضوء عن نوافذ بيت الجار ضررًا فاحشًا، وما الجزاء الممكن؟",
+      "expected_articles": [
+        "1042"
+      ],
+      "ranked_articles": [
+        "1042",
+        "1101",
+        "1046",
+        "1040",
+        "714",
+        "1047"
+      ],
+      "predicted_articles": [
+        "1042"
+      ],
+      "matched_articles": [
+        "1042"
+      ],
+      "retrieval_confidence": 0.816,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1042 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1042",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1042",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-042",
+      "language": "ar",
+      "question": "هل يمنع الترخيص الإداري الجار من طلب إزالة مضار الجوار التي تجاوزت الحد المألوف؟",
+      "expected_articles": [
+        "1047"
+      ],
+      "ranked_articles": [
+        "1047",
+        "1044",
+        "707",
+        "758",
+        "732",
+        "863"
+      ],
+      "predicted_articles": [
+        "1047"
+      ],
+      "matched_articles": [
+        "1047"
+      ],
+      "retrieval_confidence": 0.798,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1047 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1047",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1047",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-043",
+      "language": "ar",
+      "question": "هل ينظم قانون المعاملات المدنية نفسه أحكام اللقطة والأشياء الأثرية تفصيلًا أم يحيلها إلى قوانين خاصة؟",
+      "expected_articles": [
+        "1109"
+      ],
+      "ranked_articles": [
+        "1109",
+        "19",
+        "245",
+        "271",
+        "74",
+        "27"
+      ],
+      "predicted_articles": [
+        "1109"
+      ],
+      "matched_articles": [
+        "1109"
+      ],
+      "retrieval_confidence": 0.6714,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1109 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1109",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1109",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-044",
+      "language": "ar",
+      "question": "ما تعريف الشفعة، ومن هو صاحب الحق الأصلي فيها؟",
+      "expected_articles": [
+        "1171"
+      ],
+      "ranked_articles": [
+        "1214",
+        "1188",
+        "1226",
+        "1196",
+        "1321",
+        "1190"
+      ],
+      "predicted_articles": [
+        "1214"
+      ],
+      "matched_articles": [],
+      "retrieval_confidence": 0.5844,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1214 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1214",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1171",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-045",
+      "language": "ar",
+      "question": "هل يثبت حق الشفعة لمجرد الجوار عند بيع عقار ملاصق؟",
+      "expected_articles": [
+        "1173"
+      ],
+      "ranked_articles": [
+        "1173",
+        "1198",
+        "1186",
+        "1171",
+        "486",
+        "540"
+      ],
+      "predicted_articles": [
+        "1173"
+      ],
+      "matched_articles": [
+        "1173"
+      ],
+      "retrieval_confidence": 0.5952,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1173 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1173",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1173",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-046",
+      "language": "ar",
+      "question": "هل يُعد تملك العقار بالشفعة شراءً جديدًا، وهل ينتفع الشفيع بأجل الثمن الممنوح للمشتري تلقائيًا؟",
+      "expected_articles": [
+        "1195"
+      ],
+      "ranked_articles": [
+        "1195",
+        "1179",
+        "1196",
+        "518",
+        "520",
+        "486"
+      ],
+      "predicted_articles": [
+        "1195"
+      ],
+      "matched_articles": [
+        "1195"
+      ],
+      "retrieval_confidence": 0.8202,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1195 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1195",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1195",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-047",
+      "language": "ar",
+      "question": "متى تزول الحيازة بسبب فقد السيطرة الفعلية؟",
+      "expected_articles": [
+        "1206"
+      ],
+      "ranked_articles": [
+        "1206",
+        "1207",
+        "1200",
+        "1209",
+        "1225",
+        "1208"
+      ],
+      "predicted_articles": [
+        "1206"
+      ],
+      "matched_articles": [
+        "1206"
+      ],
+      "retrieval_confidence": 0.7383,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1206 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1206",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1206",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-048",
+      "language": "ar",
+      "question": "متى يصبح حائز المنقول مالكًا له، وما القرينة التي تنشأ من الحيازة؟",
+      "expected_articles": [
+        "1226"
+      ],
+      "ranked_articles": [
+        "1226",
+        "1418",
+        "1202",
+        "491",
+        "1209",
+        "589"
+      ],
+      "predicted_articles": [
+        "1226"
+      ],
+      "matched_articles": [
+        "1226"
+      ],
+      "retrieval_confidence": 0.5991,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1226 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1226",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1226",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-049",
+      "language": "ar",
+      "question": "ما حق المساطحة، وما الذي يخول صاحبه فعله على الأرض؟",
+      "expected_articles": [
+        "1254"
+      ],
+      "ranked_articles": [
+        "1254",
+        "1256",
+        "1287",
+        "1257",
+        "1160",
+        "1163"
+      ],
+      "predicted_articles": [
+        "1254"
+      ],
+      "matched_articles": [
+        "1254"
+      ],
+      "retrieval_confidence": 0.6879,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1254 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1254",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1254",
+          "verdict": "VERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "eval-ar-050",
+      "language": "ar",
+      "question": "ما الضمان المقرر للشركاء بعد قسمة العقار، ومتى تبدأ مرتبة حق الامتياز؟",
+      "expected_articles": [
+        "1422"
+      ],
+      "ranked_articles": [
+        "1422",
+        "1419",
+        "608",
+        "613",
+        "1085",
+        "417"
+      ],
+      "predicted_articles": [
+        "1422"
+      ],
+      "matched_articles": [
+        "1422"
+      ],
+      "retrieval_confidence": 0.6347,
+      "confidence_threshold": 0.44,
+      "refused": false,
+      "answer_citation_verdicts": [
+        {
+          "raw": "المادة 1422 من مرسوم بقانون اتحادي رقم 25 لسنة 2025",
+          "article_number": "1422",
+          "verdict": "VERIFIED"
+        }
+      ],
+      "known_real_citation_checks": [
+        {
+          "article_number": "1422",
+          "verdict": "VERIFIED"
+        }
+      ]
+    }
+  ]
+}

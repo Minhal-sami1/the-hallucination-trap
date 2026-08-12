@@ -1,0 +1,61 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: hallucination_trap
+      POSTGRES_USER: trap
+      POSTGRES_PASSWORD: trap
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trap -d hallucination_trap"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://trap:trap@db:5432/hallucination_trap}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2@faf4aa4225822f3bc6376869cb1164e8e3feedd0}
+      RERANKER_MODEL: ${RERANKER_MODEL:-onnx-community/gte-multilingual-reranker-base@ee64367e35a2db0da46bb6497e13a18f8bd585cb}
+      CACHE_MODE: ${CACHE_MODE:-cached}
+      MODEL_CACHE_DIR: /models
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://localhost:8080}
+    command: uvicorn api.app.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/workspace
+      - model_cache:/models
+
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    environment:
+      VITE_API_BASE: ${VITE_API_BASE:-http://localhost:8000}
+    command: npm run dev -- --host 0.0.0.0
+    depends_on:
+      - api
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./web:/workspace/web
+      - ./tokens.css:/workspace/tokens.css:ro
+      - web_node_modules:/workspace/web/node_modules
+
+volumes:
+  postgres_data:
+  model_cache:
+  web_node_modules:

@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: trap
+          POSTGRES_PASSWORD: trap
+          POSTGRES_DB: hallucination_trap
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U trap -d hallucination_trap"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+
+    env:
+      DATABASE_URL: postgresql+psycopg://trap:trap@127.0.0.1:5432/hallucination_trap
+      CACHE_MODE: cached
+      MODEL_CACHE_DIR: .cache/models
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: api/pyproject.toml
+
+      - name: Install API and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e "api[dev]"
+
+      - name: Run database migrations
+        run: python -m alembic -c api/alembic.ini upgrade head
+
+      - name: Run API tests
+        run: python -m pytest -q
+
+      - name: Lint Python source
+        run: python -m ruff check api scripts tests
+
+      - name: Rebuild the corpus from official DOM evidence
+        run: python scripts/parse_official_html.py --check
+
+      - name: Cache pinned local models
+        uses: actions/cache@v4
+        with:
+          path: .cache/models
+          key: models-${{ runner.os }}-${{ hashFiles('scripts/fetch_models.py', 'api/app/config.py') }}
+
+      - name: Fetch pinned model artifacts
+        run: python scripts/fetch_models.py .cache/models
+
+      - name: Ingest and verify the corpus
+        run: |
+          python scripts/ingest.py
+          python scripts/verify_corpus.py
+
+      - name: Run the fixed evaluation
+        run: python scripts/check_eval_clean.py
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm ci --prefix web
+
+      - name: Test the frontend
+        run: npm test --prefix web
+
+      - name: Build the frontend
+        run: npm run build --prefix web

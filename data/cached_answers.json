@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-08-12",
+  "provider": "gpt-5.6 Codex subagent",
+  "answers": {
+    "seed-ar-neighbour-light": {
+      "ungrounded": {
+        "text": "المادة (1529) تقرر أن حجب الضوء الطبيعي عن نوافذ الجار ضرر جسيم يجيز له طلب إزالة الجزء المسبب للضرر. ولا تحصّن الرخصة الإدارية البناء من المطالبة المدنية، لأن الترخيص ينظم علاقة المالك بالجهة الإدارية ولا يسقط حق الجار الخاص.",
+        "provider": "gpt-5.6 Codex subagent",
+        "run_id": "seed-ar-neighbour-light-r01"
+      }
+    },
+    "seed-en-child-sale": {
+      "ungrounded": {
+        "text": "Article (1452) treats a child under seven as having no legal discernment for property transactions. The bicycle sale is therefore void from the outset and cannot create a binding transfer merely because the other party accepted it.",
+        "provider": "gpt-5.6 Codex subagent",
+        "run_id": "seed-en-child-sale-r01"
+      }
+    },
+    "seed-en-building-collapse": {
+      "ungrounded": {
+        "text": "Article (1471) imposes a ten-year statutory warranty jointly on the designing and supervising engineer and the contractor for total or partial collapse. Because the collapse occurred eight years after delivery, both are jointly liable to the employer.",
+        "provider": "gpt-5.6 Codex subagent",
+        "run_id": "seed-en-building-collapse-r01"
+      }
+    },
+    "seed-en-gift-revocation": {
+      "ungrounded": {
+        "text": "Article (1531) permits revocation after delivery when the donor later cannot maintain a reasonable standard of living. Because the donee refuses consent and no bar applies, the donor may ask the court to rescind the gift and order restitution.",
+        "provider": "gpt-5.6 Codex subagent",
+        "run_id": "seed-en-gift-revocation-r01"
+      }
+    },
+    "seed-en-insurance-concealment": {
+      "ungrounded": {
+        "text": "Article (1551) allows the insurer to terminate the policy for intentional concealment of a fact material to risk. The insurer may also retain or recover premiums that became due before the termination demand.",
+        "provider": "gpt-5.6 Codex subagent",
+        "run_id": "seed-en-insurance-concealment-r01"
+      }
+    },
+    "seed-en-neighbour-preemption": {
+      "ungrounded": {
+        "text": "Article (1481) limits pre-emption to a co-owner of an undivided share in the property sold. Mere ownership of neighbouring land gives no pre-emption right, so this person cannot displace the buyer.",
+        "provider": "gpt-5.6 Codex subagent",
+        "run_id": "seed-en-neighbour-preemption-r01"
+      }
+    },
+    "seed-en-essential-mistake": {
+      "ungrounded": {
+        "text": "Article (1498) allows annulment when both parties share a mistake concerning an attribute essential to consent. Because the buyer would not have contracted without that attribute, the mistake is material and the buyer may seek to set the contract aside.",
+        "provider": "gpt-5.6 Codex subagent",
+        "run_id": "seed-en-essential-mistake-r01"
+      }
+    },
+    "seed-en-agent-death": {
+      "ungrounded": {
+        "text": "Article (1504) terminates the agency automatically on the agent's death. A capable heir or guardian who knows of the agency must promptly notify the principal and take reasonable temporary steps to protect the principal's interests.",
+        "provider": "gpt-5.6 Codex subagent",
+        "run_id": "seed-en-agent-death-r01"
+      }
+    }
+  }
+}

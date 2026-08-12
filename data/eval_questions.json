@@ -1,0 +1,361 @@
+{
+  "law": {
+    "name": "Federal Decree by Law No. (25) of 2025 Promulgating the Civil Transactions Law",
+    "number": 25,
+    "year": 2025,
+    "article_count": 1422,
+    "source_url": "https://uaelegislation.gov.ae/en/legislations/4011"
+  },
+  "questions": [
+    {
+      "id": "eval-en-001",
+      "language": "en",
+      "question": "If no applicable legislative provision, Shari'ah ruling, or custom resolves a civil dispute, what source must the court use next?",
+      "expected_articles": [1],
+      "evidence_note": "Article (1) sets the sequence of applicable legislation, Islamic Shari'ah, custom, and finally principles of natural law and rules of justice."
+    },
+    {
+      "id": "eval-en-002",
+      "language": "en",
+      "question": "Which calendar governs the calculation of statutory time limits unless another rule is stated?",
+      "expected_articles": [9],
+      "evidence_note": "Article (9) requires time limits to be calculated by the Gregorian calendar unless the law provides otherwise."
+    },
+    {
+      "id": "eval-en-003",
+      "language": "en",
+      "question": "Which country's law governs possession and ownership of an immovable property?",
+      "expected_articles": [18],
+      "evidence_note": "Article (18)(1) applies the law of the place where the immovable property is located."
+    },
+    {
+      "id": "eval-en-004",
+      "language": "en",
+      "question": "If contracting parties choose no governing law and have different domiciles, which law normally governs their contractual obligations?",
+      "expected_articles": [19],
+      "evidence_note": "Article (19)(1) applies the law of the country where the contract's main obligation is to be performed when the parties have different domiciles, unless the circumstances show another intended law."
+    },
+    {
+      "id": "eval-en-005",
+      "language": "en",
+      "question": "May a UAE court apply a designated foreign-law rule that conflicts with UAE public order or public morals?",
+      "expected_articles": [29],
+      "evidence_note": "Article (29) bars application of designated foreign-law provisions that conflict with UAE public order or public morals."
+    },
+    {
+      "id": "eval-en-006",
+      "language": "en",
+      "question": "Can a person avoid a civil rule by stating that they did not know the law?",
+      "expected_articles": [31],
+      "evidence_note": "Article (31) states that ignorance of the law is no excuse."
+    },
+    {
+      "id": "eval-en-007",
+      "language": "en",
+      "question": "At what age does a child attain discernment for the capacity rules in this Law?",
+      "expected_articles": [85],
+      "evidence_note": "Article (85) deems a person under seven Gregorian years non-discerning and sets discernment at seven complete Gregorian years."
+    },
+    {
+      "id": "eval-en-008",
+      "language": "en",
+      "question": "Can a person validly waive their legal capacity by agreement?",
+      "expected_articles": [88],
+      "evidence_note": "Article (88) prohibits a person from waiving personal freedom or legal capacity, altering their governing rules, or making either the subject of a transaction."
+    },
+    {
+      "id": "eval-en-009",
+      "language": "en",
+      "question": "How does the Law classify ownership, usufruct, mortgage, possessory pledge, and privilege among real rights?",
+      "expected_articles": [110],
+      "evidence_note": "Article (110) lists ownership and derived rights such as usufruct as principal real rights, and mortgage, possessory pledge, and privilege as accessory real rights."
+    },
+    {
+      "id": "eval-en-010",
+      "language": "en",
+      "question": "May parties exclude the duty to disclose information that is decisive to contractual consent?",
+      "expected_articles": [122],
+      "evidence_note": "Article (122) imposes disclosure of essential and decisive information and makes any condition limiting, excluding, or exempting that duty void."
+    },
+    {
+      "id": "eval-en-011",
+      "language": "en",
+      "question": "When can an offer be revoked during the contractual session, and what happens if the offeror dies before acceptance?",
+      "expected_articles": [129],
+      "evidence_note": "Article (129) permits revocation until the contractual session ends and makes the offer lapse if the offeror or offeree dies before acceptance."
+    },
+    {
+      "id": "eval-en-012",
+      "language": "en",
+      "question": "Who receives the rights and obligations when a representative contracts in the principal's name within the agency limits?",
+      "expected_articles": [142],
+      "evidence_note": "Article (142) places the contract's effects, rights, and obligations on the principal when the representative acts in the principal's name within the agency."
+    },
+    {
+      "id": "eval-en-013",
+      "language": "en",
+      "question": "What is the effect of a non-discerning minor's act disposing of property?",
+      "expected_articles": [147],
+      "evidence_note": "Article (147) gives a non-discerning minor no right to dispose of property and declares all such acts void."
+    },
+    {
+      "id": "eval-en-014",
+      "language": "en",
+      "question": "How does the Law treat a discerning minor's financial act that is exclusively beneficial, exclusively detrimental, or between benefit and detriment?",
+      "expected_articles": [148],
+      "evidence_note": "Article (148) makes exclusively beneficial acts valid, exclusively detrimental acts void, and intermediate acts voidable for the discerning minor's benefit."
+    },
+    {
+      "id": "eval-en-015",
+      "language": "en",
+      "question": "Does a tutor need court authorization to sell, mortgage, lend, settle, or partition a minor's property when the act is not ordinary administration?",
+      "expected_articles": [153],
+      "evidence_note": "Article (153) makes listed non-administrative acts concerning a minor's property valid and effective only with court authorization."
+    },
+    {
+      "id": "eval-en-016",
+      "language": "en",
+      "question": "Is a contract voidable when a mistake concerns the nature of the contract, a formation condition, or its subject matter?",
+      "expected_articles": [161],
+      "evidence_note": "Article (161) makes a contract voidable for a mistake in its nature, a condition of formation, or its subject matter."
+    },
+    {
+      "id": "eval-en-017",
+      "language": "en",
+      "question": "When can a party seek annulment for an essential mistake shared by, known to, or easily detectable by the other party?",
+      "expected_articles": [162],
+      "evidence_note": "Article (162)(1) allows annulment for an essential mistake when the other party shared it, knew it, or could easily detect it."
+    },
+    {
+      "id": "eval-en-018",
+      "language": "en",
+      "question": "When is a mistake about an item's desired attribute considered material?",
+      "expected_articles": [163],
+      "evidence_note": "Article (163) treats a mistake as material when it would have prevented contracting and specifically includes a desired attribute essential to the parties' consideration."
+    },
+    {
+      "id": "eval-en-019",
+      "language": "en",
+      "question": "What conduct constitutes deception during contract formation?",
+      "expected_articles": [170],
+      "evidence_note": "Article (170) defines deception as verbal or physical fraudulent means that induce consent which would not otherwise have been given."
+    },
+    {
+      "id": "eval-en-020",
+      "language": "en",
+      "question": "Can deliberate silence about a decisive fact amount to contractual deception?",
+      "expected_articles": [171],
+      "evidence_note": "Article (171) treats deliberate silence as deception if the person would not have contracted had they known the fact or circumstance."
+    },
+    {
+      "id": "eval-en-021",
+      "language": "en",
+      "question": "What are the one-year and fifteen-year limits for asserting annulment based on mistake, deception, or coercion?",
+      "expected_articles": [191],
+      "evidence_note": "Article (191) sets a one-year period from the specified discovery or cessation event and an absolute fifteen-year limit from contract formation for mistake, deception, or coercion."
+    },
+    {
+      "id": "eval-en-022",
+      "language": "en",
+      "question": "How can a party revoke, modify, or rescind a valid and binding contract?",
+      "expected_articles": [232],
+      "evidence_note": "Article (232) permits those changes only by mutual consent, litigation, or a provision of law."
+    },
+    {
+      "id": "eval-en-023",
+      "language": "en",
+      "question": "What happens when a person completes the stated act under a public prize promise, even without acting because of the promise?",
+      "expected_articles": [244],
+      "evidence_note": "Article (244)(1) binds the promisor to give the prize to a person who meets the announced conditions even if that person acted without regard to the promise."
+    },
+    {
+      "id": "eval-en-024",
+      "language": "en",
+      "question": "How does liability differ when harm is direct rather than caused indirectly?",
+      "expected_articles": [247],
+      "evidence_note": "Article (247) states that direct harm gives rise to a guarantee without condition, while causative harm requires transgression, intent, or that the act led to the harm."
+    },
+    {
+      "id": "eval-en-025",
+      "language": "en",
+      "question": "When can a public official avoid personal liability for harm caused while following a law or superior's order?",
+      "expected_articles": [251],
+      "evidence_note": "Article (251)(2) requires mandatory obedience or a reasonably grounded belief in lawfulness, proof of that belief, and due care and caution."
+    },
+    {
+      "id": "eval-en-026",
+      "language": "en",
+      "question": "Can a person recover performance made for an obligation whose cause never arose or later ceased?",
+      "expected_articles": [276],
+      "evidence_note": "Article (276) permits restitution where the obligation's cause was not realized or ceased after realization, and in the stated case of an unknown future term."
+    },
+    {
+      "id": "eval-en-027",
+      "language": "en",
+      "question": "Who bears the risk of loss after the creditor is put in default, and what deposit remedy does the debtor have?",
+      "expected_articles": [301],
+      "evidence_note": "Article (301) transfers the risk of loss to the defaulting creditor and permits court-authorized deposit at the creditor's expense, with a possible compensation claim."
+    },
+    {
+      "id": "eval-en-028",
+      "language": "en",
+      "question": "What standard of care normally satisfies an obligation to preserve or manage a thing, and does it excuse fraud or gross fault?",
+      "expected_articles": [334],
+      "evidence_note": "Article (334) normally uses the care of an ordinary person but keeps the debtor liable for fraud or gross fault."
+    },
+    {
+      "id": "eval-en-029",
+      "language": "en",
+      "question": "When may a court reduce agreed compensation, and when may a creditor claim more than the agreed amount?",
+      "expected_articles": [340],
+      "evidence_note": "Article (340) permits reduction for excess, partial performance, or creditor fault, and permits a higher claim when the debtor committed fraud or gross fault."
+    },
+    {
+      "id": "eval-en-030",
+      "language": "en",
+      "question": "Does an assignment of a creditor's right require the debtor's consent for its validity?",
+      "expected_articles": [405],
+      "evidence_note": "Article (405) permits assignment unless barred by law, agreement, or the obligation's nature, and states that validity does not depend on debtor consent."
+    },
+    {
+      "id": "eval-en-031",
+      "language": "en",
+      "question": "What documents and accessories must a seller deliver with the subject matter of a sale?",
+      "expected_articles": [469],
+      "evidence_note": "Article (469) requires ownership documents where law or custom requires them and includes permanent fixtures, items prepared for permanent use, and customary appurtenances in delivery."
+    },
+    {
+      "id": "eval-en-032",
+      "language": "en",
+      "question": "Can a seller rely on a contractual exclusion of defect liability after deliberately concealing the defect by fraud?",
+      "expected_articles": [497],
+      "evidence_note": "Article (497)(5) recognizes an exclusion condition but denies its protection where the seller deliberately concealed the defect by fraud or inspection was prevented."
+    },
+    {
+      "id": "eval-en-033",
+      "language": "en",
+      "question": "When is a sale-defect warranty claim time-barred, and what fraud exception applies?",
+      "expected_articles": [510],
+      "evidence_note": "Article (510) bars the claim one year after the day following delivery unless a longer warranty exists, and prevents the seller from using the period after fraudulent concealment."
+    },
+    {
+      "id": "eval-en-034",
+      "language": "en",
+      "question": "What is a gift under the Civil Transactions Law?",
+      "expected_articles": [552],
+      "evidence_note": "Article (552) defines a gift as a lifetime contract to transfer ownership of gifted property without consideration."
+    },
+    {
+      "id": "eval-en-035",
+      "language": "en",
+      "question": "How is a gift formed and completed, and what documentation rules apply to immovable and movable gifts?",
+      "expected_articles": [554],
+      "evidence_note": "Article (554) requires offer and acceptance, completion by possession, documentation for immovables, and documentation or permitted possession for movables."
+    },
+    {
+      "id": "eval-en-036",
+      "language": "en",
+      "question": "Can a donor revoke a gift after the donee has taken possession and refuses consent?",
+      "expected_articles": [582, 583],
+      "evidence_note": "Article (582) permits a court request after possession if there is an acceptable excuse and no impediment; Article (583) lists acceptable excuses."
+    },
+    {
+      "id": "eval-en-037",
+      "language": "en",
+      "question": "What must a borrower return under a loan, and what happens to a condition requiring an extra benefit for the lender?",
+      "expected_articles": [591],
+      "evidence_note": "Article (591) requires return of the same amount, type, and description of money or another fungible, and voids an extra-benefit condition while keeping the loan valid."
+    },
+    {
+      "id": "eval-en-038",
+      "language": "en",
+      "question": "For how long are an engineer and contractor jointly liable for a building's collapse or structural-safety defect, and when does the period start?",
+      "expected_articles": [821],
+      "evidence_note": "Article (821) imposes joint ten-year liability for collapse and structural-safety defects, starting when the employer takes delivery of the work."
+    },
+    {
+      "id": "eval-en-039",
+      "language": "en",
+      "question": "What events extinguish an agency, and what protective steps follow the agent's death?",
+      "expected_articles": [897],
+      "evidence_note": "Article (897) lists completion, term expiry, and death or loss of capacity, and requires a capable informed heir or guardian to notify the principal and protect the principal's interests."
+    },
+    {
+      "id": "eval-en-040",
+      "language": "en",
+      "question": "What can an insurer demand after the insured conceals a material risk fact in bad faith, and what changes if bad faith is absent?",
+      "expected_articles": [962],
+      "evidence_note": "Article (962) permits termination and claims for premiums due before demand in bad-faith cases, but requires return of unearned premiums when fraud or bad faith is absent."
+    },
+    {
+      "id": "eval-ar-041",
+      "language": "ar",
+      "question": "هل يُعد حجب الضوء عن نوافذ بيت الجار ضررًا فاحشًا، وما الجزاء الممكن؟",
+      "expected_articles": [1042],
+      "evidence_note": "تنص المادة (1042) على أن حجب الضوء ضرر فاحش، وتجيز للجار طلب رفع البناء الذي يمنع الضوء دفعًا للضرر."
+    },
+    {
+      "id": "eval-ar-042",
+      "language": "ar",
+      "question": "هل يمنع الترخيص الإداري الجار من طلب إزالة مضار الجوار التي تجاوزت الحد المألوف؟",
+      "expected_articles": [1047],
+      "evidence_note": "تجيز المادة (1047) طلب إزالة مضار الجوار التي تتجاوز الحد المألوف، وتقرر أن ترخيص السلطة المختصة لا يمنع استعمال هذا الحق."
+    },
+    {
+      "id": "eval-ar-043",
+      "language": "ar",
+      "question": "هل ينظم قانون المعاملات المدنية نفسه أحكام اللقطة والأشياء الأثرية تفصيلًا أم يحيلها إلى قوانين خاصة؟",
+      "expected_articles": [1109],
+      "evidence_note": "تحيل المادة (1109) تنظيم اللقطة والأشياء الأثرية، مع الأموال المتروكة والكنوز والمعادن والصيد، إلى القوانين الخاصة."
+    },
+    {
+      "id": "eval-ar-044",
+      "language": "ar",
+      "question": "ما تعريف الشفعة، ومن هو صاحب الحق الأصلي فيها؟",
+      "expected_articles": [1171],
+      "evidence_note": "تعرف المادة (1171) الشفعة بأنها استحقاق شريك في عقار بحصة شائعة أخذ حصة شريكه المعاوض بها مقابل الثمن أو القيمة."
+    },
+    {
+      "id": "eval-ar-045",
+      "language": "ar",
+      "question": "هل يثبت حق الشفعة لمجرد الجوار عند بيع عقار ملاصق؟",
+      "expected_articles": [1173],
+      "evidence_note": "تنفي المادة (1173)(2) حق الشفعة عن الجار عند بيع عقار ملاصق، حتى إذا كان له انتفاع بطريق فيه بإجارة أو ارتفاق."
+    },
+    {
+      "id": "eval-ar-046",
+      "language": "ar",
+      "question": "هل يُعد تملك العقار بالشفعة شراءً جديدًا، وهل ينتفع الشفيع بأجل الثمن الممنوح للمشتري تلقائيًا؟",
+      "expected_articles": [1195],
+      "evidence_note": "تعد المادة (1195) التملك بالشفعة شراءً جديدًا، ولا تمنح الشفيع أجل المشتري في دفع الثمن إلا برضاء البائع."
+    },
+    {
+      "id": "eval-ar-047",
+      "language": "ar",
+      "question": "متى تزول الحيازة بسبب فقد السيطرة الفعلية؟",
+      "expected_articles": [1206],
+      "evidence_note": "تقرر المادة (1206) زوال الحيازة عند تخلي الحائز عن السيطرة الفعلية على الشيء أو الحق أو فقدها بأي طريقة."
+    },
+    {
+      "id": "eval-ar-048",
+      "language": "ar",
+      "question": "متى يصبح حائز المنقول مالكًا له، وما القرينة التي تنشأ من الحيازة؟",
+      "expected_articles": [1226],
+      "evidence_note": "تجعل المادة (1226) الحائز بسبب صحيح مالكًا للمنقول إذا كان حسن النية وقت الحيازة، وتجعل الحيازة قرينة على السبب الصحيح وحسن النية ما لم يثبت العكس."
+    },
+    {
+      "id": "eval-ar-049",
+      "language": "ar",
+      "question": "ما حق المساطحة، وما الذي يخول صاحبه فعله على الأرض؟",
+      "expected_articles": [1254],
+      "evidence_note": "تعرف المادة (1254) المساطحة بأنها حق عيني أصلي يمنحه مالك العقار للمساطح ويخوله إقامة بناء أو غراس على الأرض."
+    },
+    {
+      "id": "eval-ar-050",
+      "language": "ar",
+      "question": "ما الضمان المقرر للشركاء بعد قسمة العقار، ومتى تبدأ مرتبة حق الامتياز؟",
+      "expected_articles": [1422],
+      "evidence_note": "تمنح المادة (1422) الشركاء حق امتياز على العقار ضمانًا لاقتضاء معدل القسمة، وتوجب تسجيله وتجعل مرتبته من تاريخ التسجيل."
+    }
+  ]
+}

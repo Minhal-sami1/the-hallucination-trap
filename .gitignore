@@ -1,0 +1,16 @@
+.env
+.deploy/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+node_modules/
+web/dist/
+results/*.tmp
+.cache/
+.DS_Store
+Thumbs.db
+tmp/

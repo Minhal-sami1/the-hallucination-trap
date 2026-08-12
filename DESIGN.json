@@ -1,0 +1,39 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "The Hallucination Trap",
+  "direction": {
+    "macrostructure": "Workbench",
+    "navigation": "N9",
+    "footer": "Ft2",
+    "table": "F3",
+    "chip": "C1",
+    "vibe": ["forensic", "institutional", "bilingual", "decisive"],
+    "imagery": "none",
+    "rationale": "A data-first legal evidence interface does not need decorative imagery."
+  },
+  "typography": {
+    "english": "Manrope",
+    "arabic": "IBM Plex Sans Arabic"
+  },
+  "colorRoles": {
+    "paper": "warm ivory",
+    "primary": "plum",
+    "grounded": "navy",
+    "verified": "green",
+    "fabricated": "red",
+    "unverifiable": "amber"
+  },
+  "motion": {
+    "fabricatedStampMs": 560,
+    "sound": false,
+    "reducedMotion": "static red border and stamp"
+  },
+  "hallmarkCritique": {
+    "philosophy": 5,
+    "hierarchy": 5,
+    "execution": 4,
+    "specificity": 5,
+    "restraint": 5,
+    "variety": 4
+  }
+}

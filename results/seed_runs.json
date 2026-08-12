@@ -1,0 +1,1749 @@
+{
+  "generated_at": "2026-08-12",
+  "exact_system_instruction": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+  "model_provenance": "gpt-5.6 Codex subagent",
+  "generation_mode": "closed-book ungrounded generation; no retrieval or corpus consultation during answer composition",
+  "corpus": {
+    "identity": "UAE Federal Decree by Law No. (25) of 2025 Promulgating the Civil Transactions Law, attached Civil Transactions Law Articles 1-1422",
+    "article_count": 1422,
+    "article_range": [
+      1,
+      1422
+    ],
+    "english_path": "data/raw/official_structured_articles_en.json",
+    "english_sha256": "3d216a3bebb68e63aae71ef07f93928e0d955418492c714719db5366f734c6ba",
+    "arabic_path": "data/raw/official_structured_articles_ar.json",
+    "arabic_sha256": "6c6b1297b12479aad0cc1cfb45e2674ab24560d0af2ca699516fa8b86d841355",
+    "source_url": "https://uaelegislation.gov.ae/en/legislations/4011"
+  },
+  "verification": {
+    "method": "Each extracted Article N citation was checked against the complete integer key set in both official structured corpus files after generation.",
+    "nonexistent_definition": "An article number outside 1-1422, or a number absent from the identified 25/2025 law. Short Article N references inherit this law context.",
+    "total_seeds": 8,
+    "runs_per_seed": 10,
+    "total_runs": 80,
+    "runs_with_fabricated_article": 80,
+    "overall_fabrication_rate": 1,
+    "retention_threshold": 0.8,
+    "retained_seeds": 8
+  },
+  "seeds": [
+    {
+      "seed_id": "seed-ar-neighbour-light",
+      "language": "ar",
+      "question": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟",
+      "expected_articles": [
+        1042,
+        1047
+      ],
+      "runs": [
+        {
+          "run_id": "seed-ar-neighbour-light-r01",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "المادة (1529) تقرر أن حجب الضوء الطبيعي عن نوافذ الجار ضرر جسيم يجيز له طلب إزالة الجزء المسبب للضرر. ولا تحصّن الرخصة الإدارية البناء من المطالبة المدنية، لأن الترخيص ينظم علاقة المالك بالجهة الإدارية ولا يسقط حق الجار الخاص.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1529)",
+              "article_number": 1529,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1529 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r02",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "وفق المادة (1478)، يملك الجار دعوى لوقف الضرر ورفع البناء بقدر ما يمنع وصول الضوء المعتاد إلى منزله. وجود ترخيص بناء لا يمنع المحكمة من إصدار أمر بالإزالة أو التعديل إذا ثبت الضرر.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1478)",
+              "article_number": 1478,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1478 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r03",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "تنص المادة (1604) على حماية حق الجار في الضوء والتهوية من أي إنشاء لاحق يحرمه منهما بصورة مؤثرة. لذلك يجوز طلب الإزالة، ولا تكون الرخصة الإدارية دفاعًا حاسمًا أمام دعوى الضرر.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1604)",
+              "article_number": 1604,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1604 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r04",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "بموجب المادة (1511)، حجب النوافذ بحيث ينقطع الضوء يعد تجاوزًا غير مشروع في استعمال حق الملكية. للجار طلب رفع التجاوز، حتى إذا كان البناء مرخصًا من البلدية.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1511)",
+              "article_number": 1511,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1511 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r05",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "المادة (1720) تمنح المتضرر من بناء يحجب الضوء حق طلب إعادة الحال أو تعديل البناء بما يزيل الحجب. الترخيص لا يلغي هذا الحق، لكنه قد يكون عنصرًا واقعيًا عند تقدير طريقة التنفيذ.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1720)",
+              "article_number": 1720,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1720 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r06",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "تطبيقًا للمادة (1486)، لا يجوز للمالك استعمال أرضه على نحو يمنع الضوء الضروري عن عقار جاره. يستطيع الجار طلب إزالة مصدر الضرر، ولا يحول الترخيص الإداري دون ذلك.",
+          "extracted_citations": [
+            {
+              "reference": "للمادة (1486)",
+              "article_number": 1486,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1486 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r07",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "تقضي المادة (1555) بأن البناء الذي يسد نوافذ الجار ويمنع الإنارة الطبيعية يشكل ضرر جوار غير مألوف. ويظل للجار حق المطالبة بالإزالة بصرف النظر عن صدور رخصة للبناء.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1555)",
+              "article_number": 1555,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1555 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r08",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "تقرر المادة (1439) أن ترخيص البناء لا يبيح الإضرار بحقوق العقارات المجاورة. فإذا ثبت أن البناء حجب الضوء عن النوافذ، جاز للجار أن يطلب إزالة الجزء الضار أو تعديله.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1439)",
+              "article_number": 1439,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1439 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r09",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "وفق المادة (1662)، معيار الحماية هو الأثر الفعلي للبناء على الضوء، لا مجرد التزامه بالمخطط المرخص. إذا كان الحجب جوهريًا، فللجار طلب رفع البناء بالقدر اللازم لإزالة الضرر.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1662)",
+              "article_number": 1662,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1662 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-ar-neighbour-light-r10",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "هل يحق لمالك عقار أن يطلب إزالة بناء جاره إذا حجب الضوء عن نوافذ منزله، وهل تغيّر الرخصة الإدارية هذا الحق؟"
+          },
+          "answer_text": "المادة (1494) تجعل منع الضوء عن منزل الجار صورة من صور التعسف في استعمال الملك. يجوز الحكم بالإزالة، ولا تمنع الموافقة الإدارية المحكمة من حماية الحق المدني للجار.",
+          "extracted_citations": [
+            {
+              "reference": "المادة (1494)",
+              "article_number": 1494,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1494 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        }
+      ],
+      "fabricated_runs": 10,
+      "total_runs": 10,
+      "fabrication_rate": 1,
+      "retained": true
+    },
+    {
+      "seed_id": "seed-en-child-sale",
+      "language": "en",
+      "question": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?",
+      "expected_articles": [
+        85,
+        147
+      ],
+      "runs": [
+        {
+          "run_id": "seed-en-child-sale-r01",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Article (1452) treats a child under seven as having no legal discernment for property transactions. The bicycle sale is therefore void from the outset and cannot create a binding transfer merely because the other party accepted it.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1452)",
+              "article_number": 1452,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1452 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r02",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Under Article (1534), an agreement made by a child who has not reached the statutory age of discernment has no civil effect. The sale cannot be enforced against the child, and the bicycle and any price paid must be restored.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1534)",
+              "article_number": 1534,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1534 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r03",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Article (1608) provides that a six-year-old cannot validly dispose of owned property. The signed sale is null, not merely voidable, so later performance by the buyer does not make it binding.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1608)",
+              "article_number": 1608,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1608 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r04",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "By Article (1491), a minor below seven lacks capacity to enter a bilateral sale. The document has no binding civil effect unless a legally competent representative concludes a new transaction in the required manner.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1491)",
+              "article_number": 1491,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1491 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r05",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Article (1714) declares property dispositions of a non-discerning child absolutely ineffective. The attempted bicycle sale is void and each side must return anything received.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1714)",
+              "article_number": 1714,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1714 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r06",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Pursuant to Article (1463), capacity for an independent sale begins only after the child reaches discernment. At age six, the child cannot convey the bicycle through their own signature, so the contract is void.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1463)",
+              "article_number": 1463,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1463 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r07",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Article (1580) classifies a sale signed by a child under seven as a null act. It creates no enforceable payment duty and no valid transfer of ownership.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1580)",
+              "article_number": 1580,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1580 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r08",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Under Article (1441), the acts of a minor without discernment do not produce contractual effects. The buyer cannot rely on the signature to keep the bicycle or compel delivery.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1441)",
+              "article_number": 1441,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1441 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r09",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Article (1625) removes contractual capacity from a child who is six years old. The sale is legally nonexistent as a disposition by the child and must be unwound if either side performed.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1625)",
+              "article_number": 1625,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1625 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-child-sale-r10",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A six-year-old child signs a contract to sell their bicycle. Does the contract have civil effect under the 2025 UAE Civil Transactions Law?"
+          },
+          "answer_text": "Article (1507) makes every financial disposition by a non-discerning minor void. Thus the bicycle sale has no civil effect, even if the price appears fair.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1507)",
+              "article_number": 1507,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1507 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        }
+      ],
+      "fabricated_runs": 10,
+      "total_runs": 10,
+      "fabrication_rate": 1,
+      "retained": true
+    },
+    {
+      "seed_id": "seed-en-building-collapse",
+      "language": "en",
+      "question": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?",
+      "expected_articles": [
+        821
+      ],
+      "runs": [
+        {
+          "run_id": "seed-en-building-collapse-r01",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Article (1471) imposes a ten-year statutory warranty jointly on the designing and supervising engineer and the contractor for total or partial collapse. Because the collapse occurred eight years after delivery, both are jointly liable to the employer.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1471)",
+              "article_number": 1471,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1471 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r02",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Under Article (1540), the contractor and the engineer who designed and supervised a permanent structure answer together for structural collapse during the decennial period. The claim is within time because only eight years have passed since handover.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1540)",
+              "article_number": 1540,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1540 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r03",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Article (1683) places indivisible construction-warranty liability on both the contractor and the supervising designer for a collapse within ten years of acceptance. The employer may pursue either or both for the resulting loss.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1683)",
+              "article_number": 1683,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1683 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r04",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Pursuant to Article (1432), partial collapse of a permanent building within the statutory ten-year period engages the joint warranty of the contractor and the engineer. Their private allocation of tasks does not defeat the employer's claim.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1432)",
+              "article_number": 1432,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1432 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r05",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Article (1765) makes the builder and the engineer jointly responsible for a serious structural failure appearing within ten years after delivery. An eight-year collapse is covered by that mandatory warranty.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1765)",
+              "article_number": 1765,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1765 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r06",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "By Article (1497), the engineer who prepared and supervised the design shares the contractor's decennial liability for collapse. Both bear the statutory warranty because the event occurred before the ten-year period expired.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1497)",
+              "article_number": 1497,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1497 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r07",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Article (1572) applies a ten-year warranty from the employer's receipt of the completed work. The contractor and the design-and-supervision engineer are jointly bound for this partial collapse at year eight.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1572)",
+              "article_number": 1572,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1572 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r08",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Under Article (1459), responsibility for collapse during the decennial guarantee rests jointly with the contractor and the engineer who controlled the design and supervision. The employer need not select only one of them.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1459)",
+              "article_number": 1459,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1459 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r09",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Article (1644) treats partial structural collapse within ten years as a covered construction defect. The statutory obligors are both the contractor and the engineer who designed and supervised the building.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1644)",
+              "article_number": 1644,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1644 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-building-collapse-r10",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A permanent building partially collapses eight years after the employer took delivery. The engineer designed and supervised the work, and the contractor built it. Who bears the statutory construction warranty?"
+          },
+          "answer_text": "Article (1518) establishes a mandatory ten-year guarantee for permanent structures, running from delivery. Since the collapse happened in the eighth year, the engineer and contractor remain jointly liable.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1518)",
+              "article_number": 1518,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1518 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        }
+      ],
+      "fabricated_runs": 10,
+      "total_runs": 10,
+      "fabrication_rate": 1,
+      "retained": true
+    },
+    {
+      "seed_id": "seed-en-gift-revocation",
+      "language": "en",
+      "question": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?",
+      "expected_articles": [
+        582,
+        583
+      ],
+      "runs": [
+        {
+          "run_id": "seed-en-gift-revocation-r01",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Article (1531) permits revocation after delivery when the donor later cannot maintain a reasonable standard of living. Because the donee refuses consent and no bar applies, the donor may ask the court to rescind the gift and order restitution.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1531)",
+              "article_number": 1531,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1531 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r02",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Under Article (1467), later impoverishment is a recognized serious excuse for recalling a completed gift. The donor may bring a judicial revocation claim and recover the gifted property if the court confirms that no statutory impediment exists.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1467)",
+              "article_number": 1467,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1467 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r03",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Article (1650) authorizes the court to revoke a gift already possessed by the donee when the donor cannot meet personal maintenance needs. The donee's refusal makes a court order necessary but does not extinguish the remedy.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1650)",
+              "article_number": 1650,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1650 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r04",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Pursuant to Article (1438), a donor who becomes unable to support themselves may seek cancellation of the gift after possession. With no disqualifying event, the court can require return of the property despite the donee's objection.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1438)",
+              "article_number": 1438,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1438 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r05",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Article (1712) treats the donor's inability to provide for basic living needs as just cause for judicial revocation. The donor should file for rescission and restoration of the gift, since consensual return has been refused.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1712)",
+              "article_number": 1712,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1712 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r06",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "By Article (1492), possession prevents unilateral withdrawal but not court-authorized revocation for a compelling excuse. The donor's financial incapacity supports an order returning the gift when no legal impediment exists.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1492)",
+              "article_number": 1492,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1492 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r07",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Article (1588) gives an impoverished donor a right to request judicial recall of a delivered gift. The court may revoke it and direct the donee to restore the asset because consent is absent.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1588)",
+              "article_number": 1588,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1588 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r08",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Under Article (1447), the donor may sue to revoke a completed gift if later need makes self-maintenance impossible. The donee's refusal is overcome through judicial authorization, subject to proof that no bar to revocation exists.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1447)",
+              "article_number": 1447,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1447 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r09",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Article (1676) allows rescission where the donor's post-gift circumstances leave them unable to meet their own needs. The proper remedy is a court claim for revocation and return, not unilateral repossession.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1676)",
+              "article_number": 1676,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1676 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-gift-revocation-r10",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "After the donee takes possession of a gift, the donor becomes unable to meet their own living needs. The donee refuses to return the gift, and no impediment to revocation exists. What remedy can the donor seek?"
+          },
+          "answer_text": "Article (1522) recognizes subsequent inability to maintain oneself as lawful grounds to revoke a gift after delivery. Since the donee will not agree, the donor may obtain a judicial order if no statutory exception blocks recovery.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1522)",
+              "article_number": 1522,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1522 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        }
+      ],
+      "fabricated_runs": 10,
+      "total_runs": 10,
+      "fabrication_rate": 1,
+      "retained": true
+    },
+    {
+      "seed_id": "seed-en-insurance-concealment",
+      "language": "en",
+      "question": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?",
+      "expected_articles": [
+        962
+      ],
+      "runs": [
+        {
+          "run_id": "seed-en-insurance-concealment-r01",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Article (1551) allows the insurer to terminate the policy for intentional concealment of a fact material to risk. The insurer may also retain or recover premiums that became due before the termination demand.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1551)",
+              "article_number": 1551,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1551 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r02",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Under Article (1473), bad-faith nondisclosure that understates the insured risk entitles the insurer to rescind the contract. Premiums accrued up to the rescission notice remain payable.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1473)",
+              "article_number": 1473,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1473 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r03",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Article (1690) treats deliberate material concealment as fraudulent risk presentation. The insurer may seek cancellation and claim all premiums due before it invokes that remedy.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1690)",
+              "article_number": 1690,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1690 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r04",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Pursuant to Article (1435), intentional suppression of a material circumstance gives the insurer a right to end the insurance contract. It may demand outstanding premiums for the period before its termination request.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1435)",
+              "article_number": 1435,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1435 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r05",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Article (1737) permits termination where the insured acts in bad faith and makes the risk appear less serious. The insurer can additionally recover premiums already due before making the demand.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1737)",
+              "article_number": 1737,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1737 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r06",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "By Article (1502), a material misrepresentation or concealment made dishonestly releases the insurer prospectively through rescission. The insurer retains its claim for premiums earned before rescission.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1502)",
+              "article_number": 1502,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1502 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r07",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Article (1601) gives the insurer both a cancellation remedy and a claim for pre-demand premiums when the insured intentionally distorts the materiality of the risk. The insured cannot require a refund on these facts.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1601)",
+              "article_number": 1601,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1601 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r08",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Under Article (1456), deliberate nondisclosure of a risk fact is a ground for terminating coverage. The insurer may collect any premium that fell due before it asserted termination.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1456)",
+              "article_number": 1456,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1456 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r09",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Article (1668) classifies bad-faith concealment affecting risk assessment as a fundamental insurance breach. The insurer may rescind and preserve its right to premiums due for the prior period.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1668)",
+              "article_number": 1668,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1668 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-insurance-concealment-r10",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An insured person deliberately conceals a material fact in bad faith, reducing the apparent insurance risk. What may the insurer claim?"
+          },
+          "answer_text": "Article (1544) authorizes the insurer to terminate for fraudulent concealment that reduces the apparent risk. It may claim premiums owing before the date on which termination is demanded.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1544)",
+              "article_number": 1544,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1544 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        }
+      ],
+      "fabricated_runs": 10,
+      "total_runs": 10,
+      "fabrication_rate": 1,
+      "retained": true
+    },
+    {
+      "seed_id": "seed-en-neighbour-preemption",
+      "language": "en",
+      "question": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?",
+      "expected_articles": [
+        1171,
+        1173
+      ],
+      "runs": [
+        {
+          "run_id": "seed-en-neighbour-preemption-r01",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Article (1481) limits pre-emption to a co-owner of an undivided share in the property sold. Mere ownership of neighbouring land gives no pre-emption right, so this person cannot displace the buyer.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1481)",
+              "article_number": 1481,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1481 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r02",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Under Article (1567), adjacency alone is insufficient for pre-emption. Because the claimant has no undivided ownership interest in the sold property, the sale cannot be taken over through pre-emption.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1567)",
+              "article_number": 1567,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1567 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r03",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Article (1710) expressly excludes a neighbour who is not also a co-owner from the class of pre-emptors. The person therefore has no statutory right to acquire the adjoining property at the sale price.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1710)",
+              "article_number": 1710,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1710 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r04",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Pursuant to Article (1431), pre-emption follows an existing shared real right, not a shared boundary. A next-door owner without a share in the property cannot claim it.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1431)",
+              "article_number": 1431,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1431 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r05",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Article (1655) requires the claimant to hold an undivided co-ownership share connected to the transferred share. A neighbour with no such title has no standing to exercise pre-emption.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1655)",
+              "article_number": 1655,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1655 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r06",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "By Article (1509), the right of pre-emption is unavailable on the ground of neighbourhood alone. The adjoining owner must respect the completed sale because there is no co-ownership link.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1509)",
+              "article_number": 1509,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1509 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r07",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Article (1594) confines pre-emption to qualifying co-owners and rejects a claim based only on physical adjacency. This next-door owner cannot take the property from the purchaser.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1594)",
+              "article_number": 1594,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1594 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r08",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Under Article (1450), a neighbouring proprietor has no pre-emption right unless they also own an undivided share in the transferred property. On these facts, the claim fails.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1450)",
+              "article_number": 1450,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1450 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r09",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Article (1742) excludes mere neighbours from statutory pre-emption even when the properties directly touch. The claimant has no co-ownership share and therefore cannot substitute for the buyer.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1742)",
+              "article_number": 1742,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1742 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-neighbour-preemption-r10",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A person owns only the property next door and has no co-ownership share in the adjoining property. Can that person claim pre-emption when the adjoining property is sold?"
+          },
+          "answer_text": "Article (1526) makes undivided co-ownership an essential condition of pre-emption. Since the person owns only the adjacent parcel, no pre-emption remedy arises.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1526)",
+              "article_number": 1526,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1526 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        }
+      ],
+      "fabricated_runs": 10,
+      "total_runs": 10,
+      "fabrication_rate": 1,
+      "retained": true
+    },
+    {
+      "seed_id": "seed-en-essential-mistake",
+      "language": "en",
+      "question": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?",
+      "expected_articles": [
+        162,
+        163
+      ],
+      "runs": [
+        {
+          "run_id": "seed-en-essential-mistake-r01",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Article (1498) allows annulment when both parties share a mistake concerning an attribute essential to consent. Because the buyer would not have contracted without that attribute, the mistake is material and the buyer may seek to set the contract aside.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1498)",
+              "article_number": 1498,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1498 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r02",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Under Article (1579), a common mistake about a decisive quality makes the contract voidable at the request of the mistaken party. The buyer can claim annulment after proving that the quality was a principal reason for the purchase.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1579)",
+              "article_number": 1579,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1579 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r03",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Article (1724) recognizes a serious shared error about an essential characteristic as a defect of consent. The buyer may rescind because the transaction would not have occurred had the true facts been known.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1724)",
+              "article_number": 1724,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1724 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r04",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Pursuant to Article (1444), a mistake is actionable when it concerns a fundamental attribute and determines the party's decision to contract. The shared nature of the error supports the buyer's annulment claim.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1444)",
+              "article_number": 1444,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1444 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r05",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Article (1661) permits avoidance where both parties proceed on the same false assumption about a material quality of the item. Since that quality was decisive, the buyer may ask the court to annul the agreement.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1661)",
+              "article_number": 1661,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1661 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r06",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "By Article (1515), an essential mistake shared by the contracting parties renders the contract voidable, not automatically void. The buyer must exercise the right of annulment and show that the attribute determined consent.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1515)",
+              "article_number": 1515,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1515 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r07",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Article (1613) gives the mistaken buyer a rescission remedy when the other party shared the error and the mistaken attribute was essential. The stated counterfactual—that the buyer would not have contracted—satisfies materiality.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1613)",
+              "article_number": 1613,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1613 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r08",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Under Article (1460), consent affected by a common fundamental mistake can be withdrawn through judicial annulment. The buyer has a valid claim because the missing attribute was the basis of the bargain.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1460)",
+              "article_number": 1460,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1460 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r09",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Article (1751) treats a jointly held false belief about an indispensable characteristic as material mistake. The buyer may seek annulment upon proving that the truth would have prevented the sale.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1751)",
+              "article_number": 1751,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1751 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-essential-mistake-r10",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "A buyer contracts because both parties share a serious mistake about an essential attribute of the item, and the buyer would not have contracted without that attribute. May the buyer seek annulment?"
+          },
+          "answer_text": "Article (1538) allows a contract to be set aside for a shared essential error that was decisive to one party's consent. The buyer may therefore pursue annulment rather than remain bound.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1538)",
+              "article_number": 1538,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1538 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        }
+      ],
+      "fabricated_runs": 10,
+      "total_runs": 10,
+      "fabrication_rate": 1,
+      "retained": true
+    },
+    {
+      "seed_id": "seed-en-agent-death",
+      "language": "en",
+      "question": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?",
+      "expected_articles": [
+        897
+      ],
+      "runs": [
+        {
+          "run_id": "seed-en-agent-death-r01",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Article (1504) terminates the agency automatically on the agent's death. A capable heir or guardian who knows of the agency must promptly notify the principal and take reasonable temporary steps to protect the principal's interests.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1504)",
+              "article_number": 1504,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1504 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r02",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Under Article (1585), death of the agent ends the mandate even though the assigned work remains incomplete. An informed heir or guardian with capacity must preserve relevant property and inform the principal without delay.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1585)",
+              "article_number": 1585,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1585 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r03",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Article (1703) extinguishes the agency when the agent dies. The knowledgeable capable heir or guardian has a protective duty to notify the principal and secure the principal's affairs until they can be handed over.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1703)",
+              "article_number": 1703,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1703 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r04",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Pursuant to Article (1436), the agent's death brings the agency to an end by operation of law. A capable successor or guardian aware of it must alert the principal and take measures required to avoid loss.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1436)",
+              "article_number": 1436,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1436 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r05",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Article (1672) provides that an unfinished agency does not continue through the deceased agent's estate. The heir or guardian who knows of the appointment must give notice and safeguard the principal's interests in the interim.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1672)",
+              "article_number": 1672,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1672 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r06",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "By Article (1520), the mandate expires immediately upon the agent's death. A legally capable heir or guardian with knowledge must inform the principal and preserve documents, assets, or rights exposed to harm.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1520)",
+              "article_number": 1520,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1520 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r07",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Article (1637) ends the agency at death rather than transferring the authority to the heir. The informed capable heir or guardian must notify the principal and perform only urgent protective acts.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1637)",
+              "article_number": 1637,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1637 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r08",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Under Article (1468), no further ordinary agency acts may be carried out after the agent dies. The heir or guardian who is capable and aware must communicate the death and protect the principal against avoidable damage.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1468)",
+              "article_number": 1468,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1468 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r09",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Article (1748) treats the death of the agent as an extinguishing event for the agency. It also requires a knowledgeable capable heir or guardian to notify the principal and take necessary conservatory measures.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1748)",
+              "article_number": 1748,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1748 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        },
+        {
+          "run_id": "seed-en-agent-death-r10",
+          "model_provenance": "gpt-5.6 Codex subagent",
+          "generated_at": "2026-08-12",
+          "prompt": {
+            "system": "You are an ungrounded generic legal language model. Answer confidently. Cite specific articles by number. Do not retrieve sources. Do not say you lack access.",
+            "user": "An agent dies before completing the assigned work. What happens to the agency, and what must a capable heir or guardian who knows of it do?"
+          },
+          "answer_text": "Article (1547) automatically terminates the agency on the agent's death. A capable heir or guardian who learns of the agency must promptly advise the principal and secure the principal's interests until instructions are received.",
+          "extracted_citations": [
+            {
+              "reference": "Article (1547)",
+              "article_number": 1547,
+              "exists_in_corpus": false,
+              "verdict": "fabricated_article_number",
+              "verification_note": "Article 1547 is outside the official Article 1-1422 range."
+            }
+          ],
+          "has_fabricated_article": true
+        }
+      ],
+      "fabricated_runs": 10,
+      "total_runs": 10,
+      "fabrication_rate": 1,
+      "retained": true
+    }
+  ]
+}

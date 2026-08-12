@@ -1,0 +1,10 @@
+target-version = "py312"
+line-length = 100
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["EXE002"]
+
+[lint.per-file-ignores]
+"api/app/main.py" = ["B008"]
+"scripts/*.py" = ["BLE001", "TRY004"]
